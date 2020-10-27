@@ -34,8 +34,8 @@
 -->
 
 <metadata 
-	xmlns="http://www.uoc.edu/subjects/adb/ns" <!- default namespace ->
-	xmlns:gencat="http://www.gencat.cat/dadesobertes/ns"> <!- specific namespace ->
+	xmlns="http://www.uoc.edu/subjects/adb/ns" <!-- default namespace -->
+	xmlns:gencat="http://www.gencat.cat/dadesobertes/ns"> <!-- specific namespace -->
 
 <!-- TO-DO -->
 
