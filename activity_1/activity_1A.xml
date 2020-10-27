@@ -1,8 +1,6 @@
-<?xml 
-	version = "1.0" 
-	encoding = "ISO-8859-1" ?>
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
 
- <!-- COMMENTS CANNOT APPEAR BEFORE XML DECLARATION
+ <!-- 
 
  ################################################################################
  #                                                                              #
@@ -34,3 +32,11 @@
  ################################################################################
 
 -->
+
+<metadata 
+	xmlns="http://www.uoc.edu/subjects/adb/ns" <!- default namespace ->
+	xmlns:gencat="http://www.gencat.cat/dadesobertes/ns"> <!- specific namespace ->
+
+<!-- TO-DO -->
+
+</metadata>
