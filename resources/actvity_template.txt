@@ -1,4 +1,4 @@
-/*###############################################################################
+ /*##############################################################################
  #                                                                              #
  #                       UOC - Open University of Catalonia                     #
  #                                                                              #
@@ -6,10 +6,14 @@
 
  ################################################################################
  #                                                                              #
- #                           DATABASE ARCHITECTURE (ABD)                        #
+ #                            DATABASE ARCHITECTURES                            # 
+ #                                 (ABD - 05607)                                #
+ #                                                                              # 
  #                             PRACTICAL ASSIGNMENT #2                          #
  #                                                                              #
- #                        STUDENT: Jordi Bericat Ruz                            #
+ #                       STUDENTS: Del Blanco García, Carles                    #
+ #								   Bericat Ruz, Jordi                           #
+ #                                                                              #
  #                           TERM: Autumn 2020/21                               #
  #                    GITHUB REPO: UOC-Assignments/uoc.abd.prac2                #
  #                    FILE 1 OF n: activity_1A.xml                              #
@@ -19,35 +23,8 @@
 
  ################################################################################
  #                                                                              #
- #  DESCRIPTION: Oracle SQL Script that creates an object-oriented database     #
- #                                                                              #
- ################################################################################
-
-
- _.~"(_.~"(_.~"(_.~"(_.~"(_.~"(_.~"(_.~"(_.~"(_.~"(_.~"(_.~"(_.~"(_.~"(_.~"(_.~"(
-
-
-/*###############################################################################
- #                                                                              #
- #                  1. DEFINIM ELS TIPUS DE DADES PERSONALITZATS                #
- #                                                                              #
- ##############################################################################*/
-
--- ######## DESCRIPCIÓ: En primer lloc crearem els UDT personalitzats (tipus) que 
--- ######## siguin estrictament necessaris per a declarar els atributs de cada UDT.
-    
-CREATE OR REPLACE TYPE Fullname AS OBJECT (
-  name VARCHAR(30),
-  surname1 VARCHAR(50),
-  surname2 VARCHAR(50)
-)FINAL;
-/
-
-CREATE OR REPLACE TYPE CurrentStudiesList AS VARRAY(10) OF VARCHAR(30);
-/
-
-/*###############################################################################
- #                                                                              #
- #          2. DEFINIM LES CLASSES DEL DIAGRAMA UML COM A TIPUS OBJECTE         #
+ #  DESCRIPTION:                                                                #
  #                                                                              #
  ##############################################################################*/ 
+
+
