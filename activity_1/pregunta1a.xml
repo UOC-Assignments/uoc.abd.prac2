@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<COVID>
+  <xs:schema xmlns:xs=" http://www.uoc.edu/subjects/adb/ns">
+  </xs:schema>
+  xmlns:custom=="http://www.gencat.cat/dadesobertes/ns">
+  <summary_data>
+    <attributes>
+      <idregion>43</idregion>
+      <descriptionregion>tarragona</descriptionregion>
+    </attributes>
+    <patients_hospitalised>
+      <men>17</men>
+      <women>4</women>
+      <average_age>56</average_age>
+    </patients_hospitalised>
+    <patients_ICU>
+      <men>6</men>
+      <women>2</women>
+      <average_age>64</average_age>
+    </patients_ICU>
+    <acumulated_cases>3947</acumulated_cases>
+  <summary_data>
+    <attributes>
+      <idregion>17</idregion>
+      <descriptionregion>girona</descriptionregion>
+    </attributes>
+    <patients_hospitalised>
+      <men>21</men>
+      <women>6</women>
+      <average_age>58</average_age>
+    </patients_hospitalised>
+    <patients_ICU>
+      <men>7</men>
+      <women>1</women>
+      <average_age>67</average_age>
+    </patients_ICU>
+    <acumulated_cases>7998</acumulated_cases>
+
+</COVID>

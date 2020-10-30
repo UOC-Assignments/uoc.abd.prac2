@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<COVID id="1234">
+   <date>
+         <year>2020</year>
+         <month>08</month>
+         <day>12</day>
+   </date>
+   <region>
+         <idregion>43</idregion>
+         <description>Tarragona</description>
+   </region>
+   <patients>
+         <hospitalised>17</hospitalised>
+         <ICU>6</ICU>
+         <gender>male</gender>
+   </patients>
+   <patients>
+         <hospitalised>6</hospitalised>
+         <ICU>2</ICU>
+         <gender>female</gender>
+   </patients>
+</COVID>
+
+<!-- L’atribut “id” és obligatori i tindrà un valor entre 1 – 9999. -->
+<xsd:element name="id">
+    <xsd:simpleType>
+         <xsd:restriction base="xsd:string">
+        <xsd:minLength value="1"/>
+        <xsd:maxLength value="9999"/>
+         </xs:restriction>
+    </xsd:simpleType>
+</xsd:element>
+
+<xsd:element name="">
+
+<!-- Del node COVID penjaran els elements date, region i fins a 10 patients (donat que les dades ens les poden proporcionar dividides). -->
+
+
+<!-- El node date estarà format pels elements year, month i day, i només cal validar que el valor sigui un enter. -->
+<xs:element name="date">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="year"/>
+      <xs:element ref="month"/>
+      <xs:element ref="day"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<!-- El node region estarà format pels elements idregion que serà un enter i l’element description que serà un string. -->
+<xs:element name="region">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="idregion"/>
+      <xs:element ref="description"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<!-- El node patients es pot repetir fins a un màxim de 10 vegades i contindrà els elements hospitalised que serà un enter, IU que serà un enter, i gender que podrà prendre els valors male, female o other. -->
