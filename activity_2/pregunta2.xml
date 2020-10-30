@@ -1,6 +1,11 @@
 <-- pregunta 2a -->
+/response/row/row[not(preceding-sibling::row/confirmed_cases >= confirmed_cases) and not(following-sibling::row/confirmed_cases > confirmed_cases)]/start_date/text()
+
+
 no funciona   /response/row/[not(../row/confirmed_cases > confirmed_cases)]/start_date
 /response/row/row/[not(../row/confirmed_cases>confirmed_cases)] (retorna true al valor mes alt )
 
+<-- torna les dates don hi ha mes de 1000 casos-->
+/response/row/row[confirmed_cases > 1000]/start_date/text()
 
 <-- pregunta 2b -->
