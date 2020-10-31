@@ -29,6 +29,10 @@
 
 [1] -> 
 
-[2] -> 
+[2] -> Here we specify the alias "gencat" to refer to the custom nameserver provided 
+       in the activity statement. This is required in order to properly integrate the 
+       external COVID xml data into our xml, due to the fact that this external data
+       MIGHT NOT have the very same structure than the defined in the default nameserver,
+       from which we "import" the default predefined xml dictionary. 
 
 -->
