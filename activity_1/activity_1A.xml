@@ -10,7 +10,8 @@
 
 <?xml version = "1.1" encoding = "ISO-8859-1" ?>
 
-<metadata xmlns="http://www.uoc.edu/subjects/adb/ns"
+<!-- See comments section [1] -->
+<metadata xmlns="http://www.uoc.edu/subjects/adb/ns" 
 	xmlns:gencat="http://www.gencat.cat/dadesobertes/ns"> 
 
 <COVID>
@@ -29,7 +30,9 @@
  #                                                                              #
  ################################################################################
 
- [1] -> 
+ [1] -> I don't really know if we should use the keyword "root" instead of "metadata"
+        to define the xml's tree root (most likely it doesn't matter, but better ask 
+        it in the forum to be in the safe side).
 
  [2] -> Here we specify the alias "gencat" to this xml element (COVID) in order to refer 
         to the custom nameserver provided in the activity statement. This is required 
