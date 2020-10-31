@@ -36,7 +36,7 @@
 
  [0] -> INITIAL CONSIDERATIONS: In our answer, it would be great to include a PNG 
         showing the xml tree structure like in the documentation (Module 2, page 42) 
-        before the xml code.
+        before the xml code. EDIT: I've added a first approach in this activity folder. 
 
  [1] -> I don't really know if we should use the keyword "root" instead of "metadata"
         to define the xml's tree root (most likely it doesn't matter, but better ask 
