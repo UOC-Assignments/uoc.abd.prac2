@@ -64,10 +64,10 @@
         it in the forum to be in the safe side).
 
  [2] -> Here we specify the alias "gencat" to this xml element (COVID) in order to refer 
-        to the custom nameserver provided in the activity statement. This is required 
+        to the custom namespace provided in the activity statement. This is required 
         for the sake of properly integrate the external COVID xml data into our xml, 
         due to the fact that this external data MIGHT NOT HAVE the very same structure 
-        than the defined in the default nameserver, from which we "import" the default 
+        than the defined in the default namespace, from which we "import" the default 
         predefined xml dictionary. Summing-up; this way we avoid name clashes between 
         the two elements with (probably) different structure but identical identification 
         (COVID). 
