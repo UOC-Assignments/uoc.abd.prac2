@@ -2,7 +2,9 @@
 
  ################################################################################
  #                                                                              #
- #               EMBED THIS FILE'S CONTENT IN THE PDF (FINAL MEMORY)            #
+ #                             ACTIVITY 1A - VERSION 1.1                        #
+ #                                                                              #
+ #               (EMBED THIS FILE'S CONTENT IN THE PDF FINAL MEMORY)            #
  #                                                                              #
  ################################################################################
 
@@ -13,19 +15,37 @@
 <!-- See comments section [1] -->
 <metadata xmlns="http://www.uoc.edu/subjects/adb/ns" 
 	xmlns:gencat="http://www.gencat.cat/dadesobertes/ns"> 
-
-<COVID idregion="43">
-</COVID>
-
-<COVID idregion="17">
-</COVID>
-
-<!-- See comments section [2] -->
-<gencat:COVID day="12/8/2020"> 
-</gencat:COVID>
-
+	<COVID idregion="43">
+		<patients_hospitalized type = "patients">
+			<men>17</men>
+			<women>4</women>
+			<average_age>56</average_age>
+		</patients_hospitalized>
+		<patients_ICU type = "patients">
+			<men>6</men>
+			<women>2</women>
+			<average_age>64</average_age>
+		</patients_ICU>
+		<accumulated_cases>3947</accumulated_cases>
+	</COVID>
+	<COVID idregion="17">
+		<patients_hospitalized type = "patients">
+			<men>21</men>
+			<women>6</women>
+			<average_age>58</average_age>
+		</patients_hospitalized>
+		<patients_ICU type = "patients">
+			<men>7</men>
+			<women>1</women>
+			<average_age>67</average_age>
+		</patients_ICU>
+		<accumulated_cases>7998</accumulated_cases>
+	</COVID>
+	<!-- See comments section [2] -->
+	<gencat:COVID day="12/8/2020"> 
+		TO-DO
+	</gencat:COVID>
 </metadata>
-
 <!-- 
 
  ################################################################################
