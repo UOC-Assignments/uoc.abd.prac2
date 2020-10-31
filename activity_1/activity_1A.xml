@@ -16,12 +16,12 @@
 <metadata xmlns="http://www.uoc.edu/subjects/adb/ns" 
 	xmlns:gencat="http://www.gencat.cat/dadesobertes/ns"> 
 	<COVID idregion="43">
-		<patients_hospitalized type = "patients">
+		<patients_hospitalized type="patients">
 			<men>17</men>
 			<women>4</women>
 			<average_age>56</average_age>
 		</patients_hospitalized>
-		<patients_ICU type = "patients">
+		<patients_ICU type="patients">
 			<men>6</men>
 			<women>2</women>
 			<average_age>64</average_age>
@@ -29,12 +29,12 @@
 		<accumulated_cases>3947</accumulated_cases>
 	</COVID>
 	<COVID idregion="17">
-		<patients_hospitalized type = "patients">
+		<patients_hospitalized type="patients">
 			<men>21</men>
 			<women>6</women>
 			<average_age>58</average_age>
 		</patients_hospitalized>
-		<patients_ICU type = "patients">
+		<patients_ICU type="patients">
 			<men>7</men>
 			<women>1</women>
 			<average_age>67</average_age>
@@ -43,7 +43,7 @@
 	</COVID>
 	<!-- See comments section [2] -->
 	<gencat:COVID day="12/8/2020"> 
-		TO-DO
+		<![!CDATA[...]]> 	<!-- See comments section [3] -->
 	</gencat:COVID>
 </metadata>
 <!-- 
@@ -70,5 +70,8 @@
         predefined xml dictionary. Summing-up; this way we avoid name clashes between 
         the two elements with (probably) different structure but identical identification 
         (COVID). 
+
+ [3] -> the structure of the external "not-xml" data is not provided, so we cannot define it 
+       (we use the [...] placeholder instead).
 
 -->
