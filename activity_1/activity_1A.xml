@@ -10,10 +10,24 @@
 
 <?xml version = "1.0" encoding = "ISO-8859-1" ?>
 
-<metadata
-	xmlns="http://www.uoc.edu/subjects/adb/ns"
+<metadata xmlns="http://www.uoc.edu/subjects/adb/ns"
 	xmlns:gencat="http://www.gencat.cat/dadesobertes/ns"> 
 
-<!-- TO-DO -->
+<COVID>
+</COVID>
+
+<gencat:COVID> <!-- See comments at bibliography (2) -->
+</gencat:COVID>
 
 </metadata>
+
+
+
+
+<!-- Bibliography 
+
+(1) -> 
+
+(2) -> 
+
+-->
