@@ -8,7 +8,7 @@
 
 -->
 
-<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<?xml version = "1.1" encoding = "ISO-8859-1" ?>
 
 <metadata xmlns="http://www.uoc.edu/subjects/adb/ns"
 	xmlns:gencat="http://www.gencat.cat/dadesobertes/ns"> 
@@ -16,7 +16,7 @@
 <COVID>
 </COVID>
 
-<gencat:COVID> <!-- See comments at bibliography (2) -->
+<gencat:COVID> <!-- See comments at bibliography [2] -->
 </gencat:COVID>
 
 </metadata>
@@ -24,10 +24,11 @@
 
 
 
+
 <!-- Bibliography 
 
-(1) -> 
+[1] -> 
 
-(2) -> 
+[2] -> 
 
 -->
