@@ -11,3 +11,22 @@
 -->
 
 <?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<!-- see comments section [1]-->
+<xsd:schema>
+
+</xsd:schema>
+
+<!-- 
+
+ ################################################################################
+ #                                                                              #
+ #                                 COMMENTS SECTION                             #
+ #                                                                              #
+ ################################################################################
+
+ [1] -> Since the activity statement doesn't give any information about namespaces 
+        (xmlns), we do not include any reference to it in the schema declaration.
+
+
+-->
