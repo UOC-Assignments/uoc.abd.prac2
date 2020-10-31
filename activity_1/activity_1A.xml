@@ -14,10 +14,14 @@
 <metadata xmlns="http://www.uoc.edu/subjects/adb/ns" 
 	xmlns:gencat="http://www.gencat.cat/dadesobertes/ns"> 
 
-<COVID>
+<COVID idregion="43">
 </COVID>
 
-<gencat:COVID> <!-- See comments section [2] -->
+<COVID idregion="17">
+</COVID>
+
+<!-- See comments section [2] -->
+<gencat:COVID> 
 </gencat:COVID>
 
 </metadata>
