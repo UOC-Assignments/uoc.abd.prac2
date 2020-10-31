@@ -2,13 +2,13 @@
 
  ################################################################################
  #                                                                              #
- #               EMBED THIS FILE'S CONTENT IN THE PDF FINAL MEMORY              #
+ #               EMBED THIS FILE'S CONTENT IN THE PDF (FINAL MEMORY)            #
  #                                                                              #
  ################################################################################
 
 -->
 
-<?xml version = "1.1" encoding = "ISO-8859-1" ?>
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
 
 <!-- See comments section [1] -->
 <metadata xmlns="http://www.uoc.edu/subjects/adb/ns" 
@@ -29,6 +29,10 @@
  #                                 COMMENTS SECTION                             #
  #                                                                              #
  ################################################################################
+
+ [0] -> INITIAL CONSIDERATIONS: In our answer, it would be great to include a PNG 
+        showing the xml tree structure like in the documentation (Module 2, page 42) 
+        before the xml code.
 
  [1] -> I don't really know if we should use the keyword "root" instead of "metadata"
         to define the xml's tree root (most likely it doesn't matter, but better ask 
