@@ -52,8 +52,9 @@ this matter.
                along with the "restriction" sub-element in order to validate that these
                subelements contain an Integer value (and nothing else).
 
-  [2.3] -> SUB-ELEMENT "region": Since the activity statement does not stablish any constraint
-           about......................
+  [2.3] -> SUB-ELEMENT "region": The activity statement does not stablish any constraint
+           about this element, hence we can simply declare it as a complexType without 
+           with no constraints at all.
 
   [2.4] -> SUB-ELEMENT "patients": Since this element can only be repeated as much as 10 
            times, we must stablish the cardinality of this element by means of the 
