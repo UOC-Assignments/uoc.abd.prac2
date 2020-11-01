@@ -12,9 +12,9 @@
 
 <?xml version = "1.0" encoding = "ISO-8859-1" ?>
 
-<!-- see comments section [1]-->
+<!-- see comments section [1] -->
 <xsd:schema targetNamespace="http://www.uoc.edu/abd/prac2/ns#">
-
+<!-- see comments section [2] -->
 </xsd:schema>
 
 <!-- 
@@ -40,11 +40,19 @@
 		[2.1.1] -> ATTRIBUTE "id": 
 
 	[2.2] -> ELEMENT "date": Should be a complex type defined as a SEQUENCE (References: 
-             module 2 page 48). On the other hand, in order to validate that the attributes 
-             "day", "month" and "year" are integers......... (CHECK THE FORUM, THERE IS A QUESTION RELATED TO THIS)
+             module 2 page 48). 
 
-	[2.3] -> ELEMENT "region":
+		[2.2.1] -> ATTRIBUTES "day", "month" & "year": in order to validate that these
+			       attributes are integers......... (CHECK THE FORUM, THERE IS A 
+             QUESTION RELATED TO THIS)
 
-	[2.4] -> ELEMENT "patients":
+	[2.3] -> ELEMENT "region": 
+
+	[2.4] -> ELEMENT "patients": We must stablish the cardinality of this element by means 
+             of the minOccurs and maxOccurs attributes (module 2, page 49).
+		
+		[2.4.1] -> Attribute "gender": Should be a complex type defined as a CHOICE (References: 
+        module 2 page 48)
+             
 
 -->
