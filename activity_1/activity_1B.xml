@@ -33,26 +33,29 @@
         EDIT 01/11/2020 12:45 -> I've raised a question in the forum in regards to 
         this matter.
 
- [2] -> DEFINITIONS:
+ [2] -> DEFINITIONS (NODES/ELEMENTS & ATTRIBUTES):
 
-	[2.1] -> ELEMENT "COVID":  
+	[2.1] -> NODE "COVID":  
 
-		[2.1.1] -> ATTRIBUTE "id": 
+		[2.1.1] -> ATTRIBUTE "id": since this is a key field, it must be declared as 
+                   a mandatory attribute. To do so, we have to explicitly declare it 
+                   with the "use" attribute, as well as the "required" attribute 
+                   (references: module 2, page 49)
 
-	[2.2] -> ELEMENT "date": Should be a complex type defined as a SEQUENCE (References: 
+	[2.2] -> NODE "date": Must be a complex type defined as a SEQUENCE (references: 
              module 2 page 48). 
 
 		[2.2.1] -> ATTRIBUTES "day", "month" & "year": in order to validate that these
 			       attributes are integers......... (CHECK THE FORUM, THERE IS A 
              QUESTION RELATED TO THIS)
 
-	[2.3] -> ELEMENT "region": 
+	[2.3] -> NODE "region": 
 
-	[2.4] -> ELEMENT "patients": We must stablish the cardinality of this element by means 
-             of the minOccurs and maxOccurs attributes (module 2, page 49).
+	[2.4] -> NODE "patients": We must stablish the cardinality of this element by means 
+             of the minOccurs and maxOccurs attributes (references: module 2, page 49).
 		
-		[2.4.1] -> Attribute "gender": Should be a complex type defined as a CHOICE (References: 
-        module 2 page 48)
+		[2.4.1] -> Attribute "gender": Must be a complex type defined as a CHOICE 
+                   (references: module 2 page 48)
              
 
 -->
