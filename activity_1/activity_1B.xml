@@ -23,9 +23,9 @@
 <!-- see comments section [2.4.1] -->
 		<xsd:simpleType name="gender">
 			<xsd:restriction base="xsd:NMTOKEN">
-				<xsd:enumeration value="low" />
-				<xsd:enumeration value="normal" />
-				<xsd:enumeration value="high" />
+				<xsd:enumeration value="female" />
+				<xsd:enumeration value="male" />
+				<xsd:enumeration value="other" />
 			</xsd:restriction>
 
 
