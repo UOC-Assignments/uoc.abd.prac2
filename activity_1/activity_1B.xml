@@ -27,35 +27,39 @@
 
  [1] -> Since the activity statement doesn't give any information about namespaces 
         (xmlns), hence we do not include any reference to it in the schema root element 
-        declaration. However, we do include the "targetNamespace" attribute in order to set
-        a context where the XML Schema will be created (otherwise, the XML Schema 
+        declaration. However, we do include the "targetNamespace" attribute in order 
+        to set a context where the XML Schema will be created (otherwise, the XML Schema 
         would have been assigned to the NULL namespace). 
         EDIT 01/11/2020 12:45 -> I've raised a question in the forum in regards to 
         this matter.
 
- [2] -> DEFINITIONS (NODES/ELEMENTS & ATTRIBUTES):
+ [2] -> SOME NOTES ABOUT ELEMENTS DEFINITION:
 
-	[2.1] -> NODE "COVID":  
+	[2.1] -> ELEMENT "COVID":  
 
 		[2.1.1] -> ATTRIBUTE "id": since this is a key field, it must be declared as 
                    a mandatory attribute. To do so, we have to explicitly declare it 
                    with the "use" attribute, as well as the "required" attribute 
-                   (references: module 2, page 49)
+                   (references: module 2, page 49). On the other hand, this attribute
+                   needs to be restricted to values in between 1-9999, thus we also 
+                   must use the attributes "minInclusive" & "maxInclusive" (references: 
+                   module 2, page 52) -> THIS MIGHT BE WRONG SINCE MININCLUSIVE & MAXINCLUSIVE ARE SympleType ATTRIBUTES. 
 
-	[2.2] -> NODE "date": Must be a complex type defined as a SEQUENCE (references: 
+	[2.2] -> SUB-ELEMENT "date": Must be a complex type defined as a SEQUENCE (references: 
              module 2 page 48). 
 
-		[2.2.1] -> ATTRIBUTES "day", "month" & "year": in order to validate that these
-			       attributes are integers......... (CHECK THE FORUM, THERE IS A 
-             QUESTION RELATED TO THIS)
+		[2.2.1] -> SUB-ELEMENTS "day", "month" & "year": we could define a "simpleType" element
+                   along with the "restriction" sub-element in order to validate that these
+			       subelements contain an Integer value (and nothing else).
 
-	[2.3] -> NODE "region": 
+	[2.3] -> SUB-ELEMENT "region": Since the activity statement does not stablish any constraint
+             about the 
 
-	[2.4] -> NODE "patients": We must stablish the cardinality of this element by means 
-             of the minOccurs and maxOccurs attributes (references: module 2, page 49).
+	[2.4] -> SUB-ELEMENT "patients": Since this element can only be repeated as much as 10 
+             times, we must stablish the cardinality of this element by means of the 
+             minOccurs and maxOccurs attributes (references: module 2, page 49).
 		
-		[2.4.1] -> Attribute "gender": Must be a complex type defined as a CHOICE 
+		[2.4.1] -> SUB-ELEMENT "gender": Must be a complex type defined as a CHOICE 
                    (references: module 2 page 48)
              
-
 -->
