@@ -13,7 +13,7 @@
 <?xml version = "1.0" encoding = "ISO-8859-1" ?>
 
 <!-- see comments section [1]-->
-<xsd:schema>
+<xsd:schema targetNamespace="http://www.uoc.edu/abd/prac2/ns#">
 
 </xsd:schema>
 
@@ -26,7 +26,25 @@
  ################################################################################
 
  [1] -> Since the activity statement doesn't give any information about namespaces 
-        (xmlns), we do not include any reference to it in the schema declaration.
+        (xmlns), hence we do not include any reference to it in the schema root element 
+        declaration. However, we do include the "targetNamespace" attribute in order to set
+        a context where the XML Schema will be created (otherwise, the XML Schema 
+        would have been assigned to the NULL namespace). 
+        EDIT 01/11/2020 12:45 -> I've raised a question in the forum in regards to 
+        this matter.
 
+ [2] -> DEFINITIONS:
+
+	[2.1] -> ELEMENT "COVID":  
+
+		[2.1.1] -> ATTRIBUTE "id": 
+
+	[2.2] -> ELEMENT "date": Should be a complex type defined as a SEQUENCE (References: 
+             module 2 page 48). On the other hand, in order to validate that the attributes 
+             "day", "month" and "year" are integers......... (CHECK THE FORUM, THERE IS A QUESTION RELATED TO THIS)
+
+	[2.3] -> ELEMENT "region":
+
+	[2.4] -> ELEMENT "patients":
 
 -->
