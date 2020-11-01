@@ -13,8 +13,23 @@
 <?xml version = "1.0" encoding = "ISO-8859-1" ?>
 
 <!-- see comments section [1] -->
-<xsd:schema targetNamespace="http://www.uoc.edu/abd/prac2/ns#">
+<xsd:schema>
 <!-- see comments section [2] -->
+
+
+
+
+
+<!-- see comments section [2.4.1] -->
+		<xsd:simpleType name="gender">
+			<xsd:restriction base="xsd:NMTOKEN">
+				<xsd:enumeration value="low" />
+				<xsd:enumeration value="normal" />
+				<xsd:enumeration value="high" />
+			</xsd:restriction>
+
+
+
 
 </xsd:schema>
 
@@ -28,13 +43,10 @@
 
 [1] -> Since the activity statement doesn't give any information about namespaces 
 (xmlns), hence we do not include any reference to it in the schema root element 
-declaration. However, we do include the "targetNamespace" attribute in order 
-to set a context where the XML Schema will be created (otherwise, the XML Schema 
-would have been assigned to the NULL namespace). 
-EDIT 01/11/2020 12:45 -> I've raised a question in the forum in regards to 
-this matter.
+declaration, neither to the "targetNamespace" attribute (the XML Schema will be 
+assigned to the NULL namespace).
 
-[2] -> SOME NOTES ABOUT ELEMENTS DEFINITION:
+[2] -> NOTES ABOUT ELEMENTS & ATTRIBUTES DEFINITIONS:
 
   [2.1] -> ELEMENT "COVID":  
 
@@ -44,25 +56,25 @@ this matter.
                (references: module 2, page 49). On the other hand, this attribute
                needs to be restricted to values in between 1-9999, thus we also 
                might have to declare this integer attribute as a simpleType and then
-               restrict its values by means of the attributes "minInclusive" & 
-               "maxInclusive" (references: module 2, page 52) 
+               apply a "range" restriction to its values by means of the "minInclusive" 
+               & "maxInclusive" attributes (references: module 2, page 52). 
 
   [2.2] -> SUB-ELEMENT "date": Must be a complex type defined as a SEQUENCE (references: 
            module 2 page 48). 
 
-    [2.2.1] -> SUB-ELEMENTS "day", "month" & "year": we could define a "simpleType" element
-               along with the "restriction" sub-element in order to validate that these
-               subelements contain an Integer value (and nothing else).
+    [2.2.1] -> SUB-ELEMENTS "day", "month" & "year": we could define these as a "simpleType" 
+               element along with the "restriction" element in order to validate that 
+               these sub-elements contain an Integer value (and nothing else).
 
   [2.3] -> SUB-ELEMENT "region": The activity statement does not stablish any constraint
            about this element, hence we can simply declare it as a complexType without 
            with no constraints at all.
 
   [2.4] -> SUB-ELEMENT "patients": Since this element can only be repeated as much as 10 
-           times, we must stablish the cardinality of this element by means of the 
-           minOccurs and maxOccurs attributes (references: module 2, page 49).
+           times, we must stablish the cardinality of this complexType element by means 
+           of the minOccurs and maxOccurs attributes (references: module 2, page 49).
 
-    [2.4.1] -> SUB-ELEMENT "gender": Must be a complex type defined as a CHOICE 
+    [2.4.1] -> SUB-ELEMENT "gender": Must be a simpleType defined as an ENUMERATION 
                (references: module 2 page 48)
              
 -->
