@@ -19,18 +19,18 @@
 
 
 	<!-- see comments section [2.4] -->
-	<xsd:complexType name="gender">
+	<xsd:complexType name="patients">
 	<!-- see comments section [2.4.1] -->
-			<xsd:simpleType name="gender">
-				<xsd:restriction base="xsd:NMTOKEN">
-					<xsd:enumeration value="female" />
-					<xsd:enumeration value="male" />
-					<xsd:enumeration value="other" />
-				</xsd:restriction>
-			</>
-	</>
-
-
+	<!-- see comments section [2.4.2] -->
+	<!-- see comments section [2.4.3] -->
+		<xsd:simpleType name="gender">
+			<xsd:restriction base="xsd:NMTOKEN">
+				<xsd:enumeration value="female" />
+				<xsd:enumeration value="male" />
+				<xsd:enumeration value="other" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:complexType >
 
 </xsd:schema>
 
@@ -60,22 +60,29 @@ assigned to the NULL namespace).
                apply a "range" restriction to its values by means of the "minInclusive" 
                & "maxInclusive" attributes (references: module 2, page 52). 
 
-  [2.2] -> SUB-ELEMENT "date": Must be a complex type defined as a SEQUENCE (references: 
+  [2.2] -> NODE "date": Must be a complex type defined as a SEQUENCE (references: 
            module 2 page 48). 
 
-    [2.2.1] -> SUB-ELEMENTS "day", "month" & "year": we could define these as "simpleType" 
+    [2.2.1] -> ELEMENTS "day", "month" & "year": we could define these as "simpleType" 
                elements along with the "restriction" subelement in order to validate that 
                these three elements contain an Integer value (and nothing else).
 
-  [2.3] -> SUB-ELEMENT "region": The activity statement does not stablish any constraint
+  [2.3] -> NODE "region": The activity statement does not stablish any constraint
            about this element, hence we can simply declare it as a complexType with no 
            constraints at all.
 
-  [2.4] -> SUB-ELEMENT "patients": Since this element can only be repeated as much as 10 
+  [2.4] -> NODE "patients": Since this node can only be repeated as much as 10 
            times, we must stablish the cardinality of this complexType element by means 
            of the minOccurs and maxOccurs attributes (references: module 2, page 49).
 
-    [2.4.1] -> SUB-ELEMENT "gender": Must be a simpleType defined as an ENUMERATION 
-               (references: module 2 page 48)
+    [2.4.1] -> ELEMENT "hospitalised": built-in simple type (references: page 50, module 2)
+
+    [2.4.2] -> ELEMENT "ICU": built-in simple type (references: page 50, module 2)
+
+    [2.4.3] -> ELEMENT "gender": Must be a simple Type derived from an NTOKEN existing 
+               built-in type, and it has to be defined as an ENUMERATION (references: 
+               module 2 page 48)
+
+
              
--->
+-->S
