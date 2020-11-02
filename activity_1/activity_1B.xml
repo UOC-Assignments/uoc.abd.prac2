@@ -15,27 +15,41 @@
 <!-- see comments section [1] -->
 <xsd:schema>
 
-<!-- definition of simple elements -->
+<!-- ######################  definition of simple elements ###################### -->
 
-<!-- definition of attributes -->
+<!-- ######################    definition of attributes    ###################### -->
 
-<!-- definition of complex elements -->
+<!-- see comments section [2.2] -->
+<xs:attribute name="id" type="xs:integer"/>
 
-	<!-- see comments section [2.2] -->
-	<xsd:complexType name="patients">
+<!-- ###################### definition of complex elements ###################### -->
+
+<xsd:element name="date"> 
+	<xsd:complexType>
+		<xsd:sequence>
+	<!-- TO-DO -->
+		</xsd:sequence>
 	</xsd:complexType>
+</xsd:element>
 
-	<!-- see comments section [2.3] -->
-	<xsd:complexType name="patients">
+<xsd:element name="region"> <!-- see comments section [2.3] -->
+	<xsd:complexType>
+		<xsd:sequence>
+	<!-- TO-DO -->
+		</xsd:sequence>
 	</xsd:complexType>
+</xsd:element>
 
-	<!-- see comments section [2.4] -->
-	<xsd:complexType name="patients">
+<xsd:element name="date"> <!-- see comments section [2.4] -->
+	<xsd:complexType>
+		<xsd:sequence>
+	<!-- TO-DO -->
+		</xsd:sequence>
 	</xsd:complexType>
+</xsd:element>
 
+<!-- ######################          root element          ###################### -->
 
-
-<!-- root element -->
 <xs:element name="COVID"> <!-- see comments section [2.1.1] -->
   <xs:complexType>
     <xs:sequence>
@@ -47,11 +61,9 @@
   </xs:complexType>
 </xs:element>
 
-<!-- end -->
 </xs:schema>
 
-
-<!------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------->
 
 
 
