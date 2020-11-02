@@ -17,17 +17,30 @@
 
 <!-- ######################  definition of simple elements ###################### -->
 
+<xs:element name="idRegion" type="xs:integer"/> <!-- see comments section [2.] -->
+<xs:element name="descripton" type="xs:string"/> <!-- see comments section [2.] -->
+<xs:element name="hospitalised" type="xs:integer"/> <!-- see comments section [2.4.1] -->
+<xs:element name="ICU" type="xs:integer"/> <!-- see comments section [2.4.2] -->
+<xsd:element name="gender"> <!-- see comments section [2.4.3] -->
+	<xsd:simpleType> 
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="female" />
+			<xsd:enumeration value="male" />
+			<xsd:enumeration value="other" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:element>
+
 <!-- ######################    definition of attributes    ###################### -->
 
-<!-- see comments section [2.2] -->
-<xs:attribute name="id" type="xs:integer"/>
+<xs:attribute name="id" type="xs:integer"/> <!-- see comments section [2.1.2] -->
 
 <!-- ###################### definition of complex elements ###################### -->
 
-<xsd:element name="date"> 
+<xsd:element name="date"> <!-- see comments section [2.2] -->
 	<xsd:complexType>
 		<xsd:sequence>
-	<!-- TO-DO -->
+			<!-- TO-DO -->
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:element>
@@ -35,15 +48,15 @@
 <xsd:element name="region"> <!-- see comments section [2.3] -->
 	<xsd:complexType>
 		<xsd:sequence>
-	<!-- TO-DO -->
+			<!-- TO-DO -->
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:element>
 
-<xsd:element name="date"> <!-- see comments section [2.4] -->
+<xsd:element name="patients"> <!-- see comments section [2.4] -->
 	<xsd:complexType>
 		<xsd:sequence>
-	<!-- TO-DO -->
+			<!-- TO-DO -->
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:element>
@@ -62,20 +75,6 @@
 </xs:element>
 
 </xs:schema>
-
-<!---------------------------------------------------------------------------------->
-
-
-
-<!-- see comments section [2.4.3] -->
-	<xsd:simpleType name="gender">
-		<xsd:restriction base="xsd:NMTOKEN">
-			<xsd:enumeration value="female" />
-			<xsd:enumeration value="male" />
-			<xsd:enumeration value="other" />
-		</xsd:restriction>
-	</xsd:simpleType>
-
 
 <!-- 
 
@@ -120,6 +119,10 @@ assigned to the NULL namespace).
   [2.3] -> NODE "region": The activity statement does not stablish any constraint
            about this element, hence we can simply declare it as a complexType with no 
            constraints at all.
+
+    [2.3.1] -> ELEMENT "idRegion": "integer" built-in simple type (references: page 50, module 2)
+
+    [2.3.2] -> ELEMENT "description": "string" built-in simple type (references: page 50, module 2)
 
   [2.4] -> NODE "patients": Since this node can only be repeated as much as 10 
            times, we must stablish the cardinality of this complexType element by means 
