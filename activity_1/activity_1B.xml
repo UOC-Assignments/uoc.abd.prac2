@@ -18,16 +18,17 @@
 
 
 
-<!-- see comments section [2.4] -->
-
-<!-- see comments section [2.4.1] -->
-		<xsd:simpleType name="gender">
-			<xsd:restriction base="xsd:NMTOKEN">
-				<xsd:enumeration value="female" />
-				<xsd:enumeration value="male" />
-				<xsd:enumeration value="other" />
-			</xsd:restriction>
-
+	<!-- see comments section [2.4] -->
+	<xsd:complexType name="gender">
+	<!-- see comments section [2.4.1] -->
+			<xsd:simpleType name="gender">
+				<xsd:restriction base="xsd:NMTOKEN">
+					<xsd:enumeration value="female" />
+					<xsd:enumeration value="male" />
+					<xsd:enumeration value="other" />
+				</xsd:restriction>
+			</>
+	</>
 
 
 
