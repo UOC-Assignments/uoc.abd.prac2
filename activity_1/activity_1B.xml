@@ -21,46 +21,49 @@
 
 <!-- definition of complex elements -->
 
+	<!-- see comments section [2.2] -->
+	<xsd:complexType name="patients">
+	</xsd:complexType>
+
+	<!-- see comments section [2.3] -->
+	<xsd:complexType name="patients">
+	</xsd:complexType>
+
+	<!-- see comments section [2.4] -->
+	<xsd:complexType name="patients">
+	</xsd:complexType>
+
+
+
 <!-- root element -->
-<xs:element name="COVID"> <!-- see comments section [2] -->
+<xs:element name="COVID"> <!-- see comments section [2.1.1] -->
   <xs:complexType>
     <xs:sequence>
       <xs:element ref="date"/>
       <xs:element ref="region"/>
       <xs:element ref="patients" maxOccurs="10"/>
     </xs:sequence>
-    <xs:attribute ref="id" use="required"/> <!-- see comments section [2.1.1] ---- FALTA 1-9999!!! --> 	
+    <xs:attribute ref="id" use="required"/> <!-- see comments section [2.1.2] ---- FALTA 1-9999!!! --> 	
   </xs:complexType>
 </xs:element>
 
+<!-- end -->
 </xs:schema>
 
 
 <!------------------------------------------------------------------------------->
 
 
-	<!-- see comments section [2.4] -->
-	<xsd:complexType name="patients">
-	<!-- see comments section [2.4.1] -->
-	<!-- see comments section [2.4.2] -->
-	<!-- see comments section [2.4.3] -->
-		<xsd:simpleType name="gender">
-			<xsd:restriction base="xsd:NMTOKEN">
-				<xsd:enumeration value="female" />
-				<xsd:enumeration value="male" />
-				<xsd:enumeration value="other" />
-			</xsd:restriction>
-		</xsd:simpleType>
-	</xsd:complexType >
 
+<!-- see comments section [2.4.3] -->
+	<xsd:simpleType name="gender">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="female" />
+			<xsd:enumeration value="male" />
+			<xsd:enumeration value="other" />
+		</xsd:restriction>
+	</xsd:simpleType>
 
-<xs:element name="gender">
-  <xs:simpleType>
-    <xs:restriction base="xs:string">
-      <xs:pattern value="male|female"/>
-    </xs:restriction>
-  </xs:simpleType>
-</xs:element>
 
 <!-- 
 
