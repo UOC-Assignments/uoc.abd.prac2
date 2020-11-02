@@ -57,7 +57,7 @@
 
  [0] -> INITIAL CONSIDERATIONS: In our answer, it would be great to include a PNG 
         showing the xml tree structure like in the documentation (Module 2, page 42) 
-        before the xml code. EDIT: I've added a first approach in this activity folder. 
+        before the xml code. EDIT: I've added a first approach in this activity folder -> PNG DRAFT DONE!
 
  [1] -> I don't really know if we should use the keyword "root" instead of "metadata"
         to define the xml's tree root (most likely it doesn't matter, but better ask 
@@ -73,6 +73,8 @@
         (COVID). 
 
  [3] -> the structure of the external "not-xml" data is not provided, so we cannot define it 
-       (we use the [...] placeholder instead).
+        (we use the [...] placeholder instead).
+
+ [4] -> CDATA[...] -> maybe we have to add the "summary of the latest data"
 
 -->
