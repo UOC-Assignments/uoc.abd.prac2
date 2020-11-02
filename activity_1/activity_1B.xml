@@ -12,8 +12,7 @@
 
 <?xml version = "1.0" encoding = "ISO-8859-1" ?>
 
-<!-- see comments section [1] -->
-<xsd:schema>
+<xsd:schema> <!-- see comments section [1] -->
 
 <!-- ######################  definition of simple elements ###################### -->
 
@@ -110,29 +109,33 @@ assigned to the NULL namespace).
                might have to declare this integer attribute as a simpleType and then
                apply a "range" restriction to its values by means of the "minInclusive" 
                & "maxInclusive" attributes (references: module 2, page 52). 
-               More information about attributes implementation -> https://www.w3schools.com/xml/schema_simple_attributes.asp
+               More information about attributes implementation:
+               https://www.w3schools.com/xml/schema_simple_attributes.asp
 
   [2.2] -> NODE "date": Must be a complex type defined as a SEQUENCE (references: 
            module 2 page 48). 
 
-    [2.2.1] -> ELEMENTS "day", "month" & "year": we could define these as simple types
-               derived from integer built-in types, and then reference them from within the 
-               complex type element "date", so we make sure these three elements contain 
-               an Integer value (and nothing else).
+    [2.2.1] -> ELEMENTS "day", "month" & "year": we could define these as simple type
+               subelements (derived from integer built-in types) of the complex type 
+               element "date". This way we make sure these three elements contain an 
+               Integer value (and nothing else).
 
   [2.3] -> NODE "region": The activity statement does not stablish any constraint
            about this element, hence we can simply declare it as a complexType with no 
            constraints at all.
 
-    [2.3.1] -> ELEMENT "idRegion": "integer" built-in simple type (references: page 50, module 2)
+    [2.3.1] -> ELEMENT "idRegion": "integer" built-in simple type (references: page 50, 
+               module 2)
 
-    [2.3.2] -> ELEMENT "description": "string" built-in simple type (references: page 50, module 2)
+    [2.3.2] -> ELEMENT "description": "string" built-in simple type (references: page 50, 
+               module 2)
 
   [2.4] -> NODE "patients": Since this node can only be repeated as much as 10 
            times, we must stablish the cardinality of this complexType element by means 
            of the minOccurs and maxOccurs attributes (references: module 2, page 49).
 
-    [2.4.1] -> ELEMENT "hospitalised": "integer" built-in simple type (references: page 50, module 2)
+    [2.4.1] -> ELEMENT "hospitalised": "integer" built-in simple type (references: page 50, 
+               module 2)
 
     [2.4.2] -> ELEMENT "ICU": "integer" built-in simple type (references: page 50, module 2)
 
