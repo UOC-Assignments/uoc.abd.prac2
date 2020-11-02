@@ -14,8 +14,36 @@
 
 <!-- see comments section [1] -->
 <xsd:schema>
-<!-- see comments section [2] -->
 
+<!-- definition of simple elements -->
+
+<!-- definition of attributes -->
+
+<!-- definition of complex elements -->
+
+<!-- root element -->
+<xs:element name="COVID">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="date"/>
+      <xs:element ref="region"/>
+      <xs:element ref="patients" maxOccurs="10"/>
+    </xs:sequence>
+    <xs:attribute ref="orderid" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>
+
+
+
+
+
+
+
+<!-- see comments section [2] -->
+	<!-- see comments section [2.1.1] -->
+    <xs:attribute name="id" type="xs:string" use="required" minInclusive="" maxInclusive=""/>
 
 
 	<!-- see comments section [2.4] -->
@@ -32,7 +60,14 @@
 		</xsd:simpleType>
 	</xsd:complexType >
 
-</xsd:schema>
+
+<xs:element name="gender">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="male|female"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
 
 <!-- 
 
@@ -49,9 +84,15 @@ assigned to the NULL namespace).
 
 [2] -> NOTES ABOUT ELEMENTS & ATTRIBUTES DEFINITIONS:
 
-  [2.1] -> ELEMENT "COVID":  
+  [2.1] -> NODE "COVID":  
 
-    [2.1.1] -> ATTRIBUTE "id": since this is a key field, it must be declared as 
+	[2.1.1] -> The "COVID" node will be the root element of this xml schema. 
+               On the other hand, we'll be considering that its subelements will 
+               be appearing in the same order on the instance xml documents. 
+               Therefore, will have to use the primitive "sequence" in the "COVID" 
+               element definition.
+
+    [2.1.2] -> ATTRIBUTE "id": since this is a key field, it must be declared as 
                a mandatory attribute. To do so, we have to explicitly declare it 
                with the "use" attribute, as well as the "required" attribute 
                (references: module 2, page 49). On the other hand, this attribute
@@ -59,6 +100,7 @@ assigned to the NULL namespace).
                might have to declare this integer attribute as a simpleType and then
                apply a "range" restriction to its values by means of the "minInclusive" 
                & "maxInclusive" attributes (references: module 2, page 52). 
+               More information about attributes implementation -> https://www.w3schools.com/xml/schema_simple_attributes.asp
 
   [2.2] -> NODE "date": Must be a complex type defined as a SEQUENCE (references: 
            module 2 page 48). 
@@ -75,14 +117,12 @@ assigned to the NULL namespace).
            times, we must stablish the cardinality of this complexType element by means 
            of the minOccurs and maxOccurs attributes (references: module 2, page 49).
 
-    [2.4.1] -> ELEMENT "hospitalised": built-in simple type (references: page 50, module 2)
+    [2.4.1] -> ELEMENT "hospitalised": "integer" built-in simple type (references: page 50, module 2)
 
-    [2.4.2] -> ELEMENT "ICU": built-in simple type (references: page 50, module 2)
+    [2.4.2] -> ELEMENT "ICU": "integer" built-in simple type (references: page 50, module 2)
 
     [2.4.3] -> ELEMENT "gender": Must be a simple Type derived from an NTOKEN existing 
                built-in type, and it has to be defined as an ENUMERATION (references: 
                module 2 page 48)
-
-
-             
--->S
+  
+-->
