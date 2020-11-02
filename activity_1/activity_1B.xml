@@ -15,7 +15,13 @@
 <xsd:schema> <!-- see comments section [1] -->
 
 <!-- ######################  definition of simple elements ###################### -->
-
+<xsd:element name="id_type">
+	<xsd:simpleType> 
+		<xsd:restriction base="xsd:integer">
+			<!-- TO-DO ---- [1-9999] constraint implementation -->
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:element>
 <xs:element name="day" type="xs:integer"/> <!-- see comments section [2.2.1] -->
 <xs:element name="month" type="xs:integer"/> <!-- see comments section [2.2.1] -->
 <xs:element name="year" type="xs:integer"/> <!-- see comments section [2.2.1] -->
@@ -35,7 +41,7 @@
 
 <!-- ######################    definition of attributes    ###################### -->
 
-<xs:attribute name="id" type="xs:integer"/> <!-- see comments section [2.1.2] -->
+<xs:attribute name="id" type="xs:id_type"/> <!-- see comments section [2.1.2] -->
 
 <!-- ###################### definition of complex elements ###################### -->
 
@@ -77,7 +83,7 @@
       <xs:element ref="region"/>
       <xs:element ref="patients" maxOccurs="10"/>
     </xs:sequence>
-    <xs:attribute ref="id" use="required"/> <!-- see comments section [2.1.2] ---- FALTA 1-9999!!! --> 	
+    <xs:attribute ref="id" use="required"/> <!-- see comments section [2.1.2] --> 	
   </xs:complexType>
 </xs:element>
 
