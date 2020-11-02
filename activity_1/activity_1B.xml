@@ -18,7 +18,7 @@
 
 
 
-
+<!-- see comments section [2.4] -->
 
 <!-- see comments section [2.4.1] -->
 		<xsd:simpleType name="gender">
@@ -41,9 +41,9 @@
  #                                                                              #
  ################################################################################
 
-[1] -> Since the activity statement doesn't give any information about namespaces 
-(xmlns), hence we do not include any reference to it in the schema root element 
-declaration, neither to the "targetNamespace" attribute (the XML Schema will be 
+[1] -> The activity statement doesn't give any information about namespaces 
+(xmlns), hence we neither include any reference to it in the schema root element 
+declaration, nor to the "targetNamespace" attribute (the XML Schema will be 
 assigned to the NULL namespace).
 
 [2] -> NOTES ABOUT ELEMENTS & ATTRIBUTES DEFINITIONS:
