@@ -111,7 +111,6 @@ INTRO: The main purpose of the extensive markup language (xml) is to stablish a
        vocabulary and set of rules for the xml structure proposed in this activity 
        statement, we'll procceed as follows:	
 
-
 [0] -> First of all, we should decide which design method we'll use to define the xml 
        schema. As seen at Bibliography [#1][https://www.w3schools.com/xml/schema_example.asp], 
        there are three available approaches:
