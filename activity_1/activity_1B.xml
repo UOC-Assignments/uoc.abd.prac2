@@ -100,7 +100,7 @@
  #                                                                              #
  ################################################################################
 
-[0] -> EXPLAIN WHY WE CHOOSE THE SECOND METHOD (DIVIDE THE SCHEMA) FROM:
+[0] -> EXPLAIN HERE WHY WE CHOOSE THE SECOND METHOD (DIVIDE THE SCHEMA) FROM:
        https://www.w3schools.com/xml/schema_example.asp 
 
        - Type reutilization,....
