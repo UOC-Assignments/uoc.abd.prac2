@@ -103,9 +103,9 @@
 INTRO: The main purpose of the extensive markup language (xml) is to stablish a 
        propper communication mechanism among applications. To achieve this, it is 
        necessary to strictly define a structure of elements (known as vocabulary) 
-       which, at the same time, also implies a set rules and constraint. Here is where 
-       xml schemas come into play, since they allow defining that so called vocabulary 
-       with a very high degree of details regarding the application data particularities. 
+       which implies a set rules and constraint. Here is where xml schemas come 
+       into play, since they allow defining that so called vocabulary with a very 
+       high degree of details regarding the application data particularities. 
 
        That said; in order to define the xml schema that will stablish the required 
        vocabulary and set of rules for the xml structure proposed in this activity 
