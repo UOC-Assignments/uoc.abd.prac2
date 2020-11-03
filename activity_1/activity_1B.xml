@@ -112,20 +112,28 @@ INTRO: The main purpose of the extensive markup language (xml) is to stablish a
        statement, we'll procceed as follows:	
 
 
-[0] -> First of all, we should decide which strategy we'll use to define the xml schema.
-       As seen at Bibliography [#1][https://www.w3schools.com/xml/schema_example.asp], 
+[0] -> First of all, we should decide which design method we'll use to define the xml 
+       schema. As seen at Bibliography [#1][https://www.w3schools.com/xml/schema_example.asp], 
        there are three available approaches:
 
-       1- "Simplest-yet-not-reusable" approach: This way, "to create the schema we 
+       1- "Simplest-yet-messy" approach: This way, "to create the schema we 
           could simply follow the structure in the XML document and define each element 
-          as we find it". (footnote: literal citation from Bibliography [#1]) 
+          as we find it". (footnote: literal citation from Bibliography [#1], section: "
+          Create an XML Schema") 
 
-       2- "" approach:
+       2- "Divided Schema" approach: "The next design method is based on defining all elements 
+          and attributes first, and then referring to them using the ref attribute" (footnote: 
+          literal citation from Bibliography [#1], section: "Create an XML Schema"). This way
+          we achieve element types eutilization and also gets easier to read and maintain the 
+          xml code in complex structures.
 
-       3- "" approach:
+       3- "Use of Name Types" approach: 
 
-       EXPLAIN HERE WHY WE CHOOSE THE SECOND METHOD (DIVIDE THE SCHEMA): Element Type 
-      reutilization, ease of reading the code, easier to read and maintain the xml code, etc.
+       Finally, we decided to use the 2nd design approach (Divide the Schema) since que 
+       won't be upgrading the xml structure (the statement says nothing about scalability 
+       and reusability of types), but at the same time we want to desing a readable (it has 
+       to be assessed) and maintanable xml squema (so both members / students who participate 
+       on its elaboration can better undersand and improve it). 
 
 [1] -> The activity statement doesn't give any information about namespaces 
 (xmlns), hence we neither include any reference to it in the schema root element 
