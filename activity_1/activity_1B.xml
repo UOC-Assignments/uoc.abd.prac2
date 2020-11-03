@@ -102,21 +102,30 @@
 
 INTRO: The main purpose of the extensive markup language (xml) is to stablish a 
        propper communication mechanism among applications. To achieve this, it is 
-       necessary to strictly define a structure of elements which, at the same time, 
-       also implies a set rules and constraint (known as vocabulary). Here is where 
+       necessary to strictly define a structure of elements (known as vocabulary) 
+       which, at the same time, also implies a set rules and constraint. Here is where 
        xml schemas come into play, since they allow defining that so called vocabulary 
        with a very high degree of details regarding the application data particularities. 
 
+       That said; in order to define the xml schema that will stablish the required 
+       vocabulary and set of rules for the xml structure proposed in this activity 
+       statement, we'll procceed as follows:	
 
 
-[0] -> EXPLAIN HERE WHY WE CHOOSE THE SECOND METHOD (DIVIDE THE SCHEMA) FROM:
-       https://www.w3schools.com/xml/schema_example.asp 
+[0] -> First of all, we should decide which strategy we'll use to define the xml schema.
+       As seen at Bibliography [#1][https://www.w3schools.com/xml/schema_example.asp], 
+       there are three available approaches:
 
-       - Type reutilization,....
+       1- "Simplest-yet-not-reusable" approach: This way, "to create the schema we 
+          could simply follow the structure in the XML document and define each element 
+          as we find it". (footnote: literal citation from Bibliography [#1]) 
 
-        
+       2- "" approach:
 
+       3- "" approach:
 
+       EXPLAIN HERE WHY WE CHOOSE THE SECOND METHOD (DIVIDE THE SCHEMA): Element Type 
+      reutilization, ease of reading the code, easier to read and maintain the xml code, etc.
 
 [1] -> The activity statement doesn't give any information about namespaces 
 (xmlns), hence we neither include any reference to it in the schema root element 
