@@ -2,7 +2,7 @@
 
  ################################################################################
  #                                                                              #
- #                             ACTIVITY 1B - VERSION 1.0                        #
+ #                             ACTIVITY 1B - VERSION 2.0                        #
  #                                                                              #
  #               (EMBED THIS FILE'S CONTENT IN THE PDF FINAL MEMORY)            #
  #                                                                              #
@@ -12,9 +12,9 @@
 
 <?xml version = "1.0" encoding = "ISO-8859-1" ?>
 
-<xsd:schema> <!-- see comments section [1] -->
-
 <!-- see comments section [0] -->
+
+<xsd:schema> <!-- see comments section [1] -->
 
 <!-- ######################  definition of simple elements ###################### -->
 
