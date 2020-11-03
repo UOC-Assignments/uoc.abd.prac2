@@ -25,9 +25,9 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 </xsd:element>
-<xs:element name="day" type="xs:integer"/> <!-- see comments section [2.2.1] -->
-<xs:element name="month" type="xs:integer"/> <!-- see comments section [2.2.1] -->
 <xs:element name="year" type="xs:integer"/> <!-- see comments section [2.2.1] -->
+<xs:element name="month" type="xs:integer"/> <!-- see comments section [2.2.1] -->
+<xs:element name="day" type="xs:integer"/> <!-- see comments section [2.2.1] -->
 <xs:element name="idRegion" type="xs:integer"/> <!-- see comments section [2.3.1] -->
 <xs:element name="descripton" type="xs:string"/> <!-- see comments section [2.3.2] -->
 <xs:element name="hospitalised" type="xs:integer"/> <!-- see comments section [2.4.1] -->
@@ -130,9 +130,7 @@ assigned to the NULL namespace).
                needs to be restricted to values in between 1-9999, thus we also 
                might have to declare this integer attribute as a simpleType and then
                apply a "range" restriction to its values by means of the "minInclusive" 
-               & "maxInclusive" attributes (references: module 2, page 52). 
-               More information about attributes implementation:
-               https://www.w3schools.com/xml/schema_simple_attributes.asp
+               & "maxInclusive" attributes (references: module 2, page 52).
 
   [2.2] -> NODE "date": Must be a complex type defined as a SEQUENCE (references: 
            module 2 page 48). 
