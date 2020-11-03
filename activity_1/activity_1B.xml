@@ -136,7 +136,7 @@ assigned to the NULL namespace).
 
   [2.1] -> NODE "COVID":  
 
-	[2.1.1] -> The "COVID" node will be the root element of this xml schema. 
+    [2.1.1] -> The "COVID" node will be the root element of this xml schema. 
                On the other hand, we'll be considering that its subelements will 
                be appearing in the same order on the instance xml documents. 
                Therefore, will have to use the primitive "sequence" in the "COVID" 
