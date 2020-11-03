@@ -132,8 +132,8 @@ INTRO: The main purpose of the extensive markup language (xml) is to stablish a
        Finally, we decided to use the 2nd design approach (Divide the Schema) since que 
        won't be upgrading the xml structure (the statement says nothing about scalability 
        and reusability of types), but at the same time we want to desing a readable (it has 
-       to be assessed) and maintanable xml squema (so both members / students who participate 
-       on its elaboration can better undersand and improve it). 
+       to be assessed) and maintanable xml squema (so both team members / students who 
+       participate on its elaboration can better undersand and improve it).
 
 [1] -> The activity statement doesn't give any information about namespaces 
 (xmlns), hence we neither include any reference to it in the schema root element 
