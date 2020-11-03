@@ -160,14 +160,14 @@ assigned to the NULL namespace).
   [2.2] -> NODE "date": Must be a complex type defined as a SEQUENCE (references: 
            Bibliography [#2], page 48). 
 
-    [2.2.1] -> ELEMENTS "year", "month" & "day" (in that order): we could define these 
-               as simple type subelements (derived from integer built-in types) of the
-               complex type element "date". This way we make sure these three elements
-               contain an Integer value (and nothing else). 
+    [2.2.1] -> ELEMENTS "year", "month" & "day" (in that order): we could define 
+               these as simple type subelements (derived from integer built-in 
+               types) of the complex type element "date". This way we make sure 
+               these three elements contain an Integer value (and nothing else). 
 
   [2.3] -> NODE "region": The activity statement does not stablish any constraint
-           about this element, hence we can simply declare it as a complexType with no 
-           constraints at all.
+           about this element, hence we can simply declare it as a complexType 
+           with no constraints at all.
 
     [2.3.1] -> ELEMENT "idRegion": "integer" built-in simple type (references:  
                Bibliography [#2], page 50)
@@ -176,17 +176,19 @@ assigned to the NULL namespace).
                Bibliography [#2], page 50)
 
   [2.4] -> NODE "patients": Since this node can only be repeated as much as 10 
-           times, we must stablish the cardinality of this complexType element by means 
-           of the minOccurs and maxOccurs attributes (references: module 2, page 49).
+           times, we must stablish the cardinality of this complexType element by 
+           means of the minOccurs and maxOccurs attributes (references: module 2, 
+           page 49).
 
-    [2.4.1] -> ELEMENT "hospitalised": "integer" built-in simple type (references: page 50, 
+    [2.4.1] -> ELEMENT "hospitalised": "integer" built-in simple type (references: 
+               page 50, module 2)
+
+    [2.4.2] -> ELEMENT "ICU": "integer" built-in simple type (references: page 50, 
                module 2)
 
-    [2.4.2] -> ELEMENT "ICU": "integer" built-in simple type (references: page 50, module 2)
-
-    [2.4.3] -> ELEMENT "gender": Must be a simple Type derived from an NTOKEN existing 
-               built-in type, and it has to be defined as an ENUMERATION (references: 
-               module 2 page 48)
+    [2.4.3] -> ELEMENT "gender": Must be a simple Type derived from an NTOKEN 
+               existing built-in type, and it has to be defined as an ENUMERATION 
+               (references: module 2 page 48)
 
 
  ################################################################################
