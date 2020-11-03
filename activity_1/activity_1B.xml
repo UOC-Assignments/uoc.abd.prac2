@@ -100,10 +100,23 @@
  #                                                                              #
  ################################################################################
 
+INTRO: The main purpose of the extensive markup language (xml) is to stablish a 
+       propper communication mechanism among applications. To achieve this, it is 
+       necessary to strictly define a structure of elements which, at the same time, 
+       also implies a set rules and constraint (known as vocabulary). Here is where 
+       xml schemas come into play, since they allow defining that so called vocabulary 
+       with a very high degree of details regarding the application data particularities. 
+
+
+
 [0] -> EXPLAIN HERE WHY WE CHOOSE THE SECOND METHOD (DIVIDE THE SCHEMA) FROM:
        https://www.w3schools.com/xml/schema_example.asp 
 
        - Type reutilization,....
+
+        
+
+
 
 [1] -> The activity statement doesn't give any information about namespaces 
 (xmlns), hence we neither include any reference to it in the schema root element 
