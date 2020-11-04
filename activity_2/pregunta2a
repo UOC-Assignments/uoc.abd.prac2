@@ -1,0 +1,8 @@
+<-- pregunta 2a -->
+<-- agafem el node row i comparem el valor de confirmed_cases per treure el de valor mes gran, a partir daqui agafem el valor corresponent de start_date -->
+/response/row/row[not(preceding-sibling::row/confirmed_cases >= confirmed_cases) and not(following-sibling::row/confirmed_cases > confirmed_cases)]/start_date/text()
+
+<-- ens situem al node row on es troben els subnodes on hem de cercar, en aquest punt hem de cercar el periode on hi ha hagut més casos confirmats pel que 
+retrocedim un node i comparem els confirmed_cases de tots els nodes iguals fins quedar aquell qui te el numero més alt; en aquest punt sel·leccionem la data d'inici 
+del node amb els confirmed_cases mes alt i ho mostrem en format text.
+-->
