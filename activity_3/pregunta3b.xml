@@ -1,52 +1,31 @@
-xquery version "3.0" encoding "UTF-8";
-<row>
-{
-for $row in collection('/PRA2/Collection')//row
+<exercici_3b>
+  {
+for $x in doc("dadesLleida.xml")/response/row/row
+    $y in doc("dadesGirona.xml")/response/row/row
+    $z in doc("dadesBarcelona.xml")/response/row/row
+    $t in doc("dadesTarragona.xml")/response/row/row
 
-
-where IsInResidence="no" and confirmed_cases max()
+where $x/residence = "No"
 
 return
-  <covidquery>
-    <AgrupatedData IsInResidence="No" MeasurementDate="">
-      <dadesLleida>
-        <confirmed_cases> </Confirmed_cases>
-        <confirmed_cases_rate> </confirmed_cases_rate>
-      </dadesLleida>
-      <dadesTarragona>
-        <confirmed_cases> </Confirmed_cases>
-        <confirmed_cases_rate> </confirmed_cases_rate>
-      </dadesTarragona>
-      <dadesGirona>
-        <confirmed_cases> </Confirmed_cases>
-        <confirmed_cases_rate> </confirmed_cases_rate>
-      </dadesGirona>
-      <dadesBarcelona>
-        <confirmed_cases> </Confirmed_cases>
-        <confirmed_cases_rate> </confirmed_cases_rate>
-      </dadesBarcelona>
-    </AgrupatedData>
-    <IsolatedData>
-      <dadesLleida>
-        <confirmed_cases> </Confirmed_cases>
-      </dadesLleida>
-      <dadesTarragona>
-        <confirmed_cases> </Confirmed_cases>
-      </dadesTarragona>
-      <dadesGirona>
-        <confirmed_cases> </Confirmed_cases>
-      </dadesGirona>
-      <dadesBarcelona>
-        <confirmed_cases> </Confirmed_cases>
-      </dadesBarcelona>
-    <IsolatedData>
-   </covidquery>
+  <lleidaDATA>
+  {$x/confirmed_cases}
+  {$x/confirmed_cases_rate}
+  </lleidaDATA>
 
-order by  $doc/confirmed_cases/number() descending"
-}
-</row>
+  <TarragonaDATA>
+  {$t/confirmed_cases}
+  {$t/confirmed_cases_rate}
+  </TarragonaDATA>
 
+   <GironaDATA>
+  {$y/confirmed_cases}
+  {$y/confirmed_cases_rate}
+  </GironaDATA>
 
-
-let $ConfirmedCasesLleida := sum(/response/row/row[idregion=33]/confirmed_cases)
-<ConfirmedCases>{$ConfirmedCasesLleida}</ConfirmedCases>
+   <BarcelonaDATA>
+  {$z/confirmed_cases}
+  {$z/confirmed_cases_rate}
+  </BarcelonaDATA>
+ }
+</exercici_3b>
