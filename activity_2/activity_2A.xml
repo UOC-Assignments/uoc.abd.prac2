@@ -33,8 +33,14 @@
 
 -->
 
+<!-- 1. XPATH SUB-QUERY: FIRST WE FIND A WAY TO RETRIEVE THE "confirmed_cases" 
+        NODE THAT CONTAINS THE MAXIMUM VALUE AMONG ALL REPETITIONS OF THE SAME 
+        ELEMENT IN THE PROVIDED XML  -->
+
 max(/response/row/row/confirmed_cases)
 
-/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/confirmed_cases/text()
+<!-- 2. XPATH MAIN QUERY: NOW WE JUST HAVE TO SEARCH FOR THE "confirmed_cases" 
+        ELEMENT THAT MATCHES THE XPATH SUB-QUERY "RETURN" VALUE -->
 
 /response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/start_date/text()
+
