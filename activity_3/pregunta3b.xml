@@ -1,3 +1,20 @@
+<--
+
+    Using XBase we need to copy all the files (dadesLleida.xml, dadesTarragona.xml, dadesBarcelona.xml, dadesGirona.xml) into a folder in order to access as a collection
+    We need to get the maximum values for each region; the output has two parts:
+    
+    AgrupatedData, were it has to show the situation for each province at the time where Lleida had the highest confirmed_cases. The format has to be as follows:
+    
+      - IsInResidence: containing the value at the node with the highest confirmed_cases from dadesLleida.xml
+      - MeasuramentData: containingstart_date value from the node  with the highest confirmed_cases at dadesLleida.xml
+    
+      Both, isInresidence and MeasurementData will be used in orderto filter the othe xml files from the other provinces and get the value from confirmed_cases and confirmed_case_rate.
+      We have to create the node for each capital LleidaData, TGNData, BCNData and GironaData, for every file we have to create.
+
+    On the other hand at IsolatedData, we need to show for every region the five days containing the highest confirmed_Cases without considering data from the other regions. 
+    It's mandatory to get data containing Residence=”No”. Finally we 'll show the values confirmed_cases - start_date.    
+-->   
+  
 for $b in /response/row/row
 let $mx := max(confirmed_cases)
 where $b/residence = "No"
