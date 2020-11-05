@@ -48,3 +48,8 @@ step #2: Once we got the "confirmed_cases" value from two elements before the
          increment of confirmed cases: 
 
          (/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/confirmed_cases/text())-(/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/preceding::row[2]/confirmed_cases/text())
+
+step #3: xxx
+         
+
+ 
