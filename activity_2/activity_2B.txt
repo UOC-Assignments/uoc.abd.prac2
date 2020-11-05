@@ -36,20 +36,24 @@ step #1: Firstly, we ONLY retrieve the 2nd previous element data (row). We can
          achieve this simply by modifying the xPath expression defined in the 
          previous activity (2A). The difference is that we now include a different 
          set of data from the one selected by the axe, by means of the 
-         "preceding::row[2]" axe "suffix" (pink). This allows us to go back two elements in 
-         evaluation direction, starting from the hierarchy element pointed by the 
-         axe "prefix" (blue).
+         "preceding::row[2]" axe "suffix" (pink)(references: Bibliography[#6]). 
+         This allows us to go back two elements in evaluation direction, starting 
+         from the hierarchy element pointed by the axe "prefix" (blue).
 
          /response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/preceding::row[2]/confirmed_cases/text()
 
 step #2: Once we got the "confirmed_cases" value from two elements before the 
          maxiumum one, we can use the operators (-) defined in the xPath 
          specification (references: Bibliography [#1], page 59) to calculate the 
-         increment of confirmed cases: 
+         increment of confirmed cases -> ((xPath_activity2A-selection)-(xPath_step1-selection))
 
          (/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/confirmed_cases/text())-(/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/preceding::row[2]/confirmed_cases/text())
 
-step #3: xxx
+step #3: Now we can concatenate different xPath expressions (including the one 
+         defined in the previous step) to generate the output as requested in the 
+         assessment statement --> "custom_text" + "xPath_step2-selection" + "custom_text"
+ 
+	
          
 
  
