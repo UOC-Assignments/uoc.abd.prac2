@@ -34,3 +34,7 @@
 -->
 
 max(/response/row/row/confirmed_cases)
+
+/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/confirmed_cases/text()
+
+/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/start_date/text()
