@@ -1,31 +1,38 @@
-<exercici_3b>
-  {
-for $x in doc("dadesLleida.xml")/response/row/row
-    $y in doc("dadesGirona.xml")/response/row/row
-    $z in doc("dadesBarcelona.xml")/response/row/row
-    $t in doc("dadesTarragona.xml")/response/row/row
-
-where $x/residence = "No"
-
+for $b in /response/row/row
+let $mx := max(confirmed_cases)
+where $b/residence = "No"
 return
-  <lleidaDATA>
-  {$x/confirmed_cases}
-  {$x/confirmed_cases_rate}
-  </lleidaDATA>
-
-  <TarragonaDATA>
-  {$t/confirmed_cases}
-  {$t/confirmed_cases_rate}
-  </TarragonaDATA>
-
-   <GironaDATA>
-  {$y/confirmed_cases}
-  {$y/confirmed_cases_rate}
-  </GironaDATA>
-
-   <BarcelonaDATA>
-  {$z/confirmed_cases}
-  {$z/confirmed_cases_rate}
-  </BarcelonaDATA>
- }
-</exercici_3b>
+<COVIDData>
+  <AgrupatedData Isinresidences="{$b/residence}" MeasurementDate="{$b/start_date}">
+    <LleidaData>
+      <ConfirmedCases>{$b/confirmed_cases}</ConfirmedCases>
+      <ConfirmedCasesRate>{$b/confirmed_cases_rate}</ConfirmedCasesRate>
+    </LleidaData>
+    <TGNData>
+      <ConfirmedCases>{$b/confirmed_cases}</ConfirmedCases>
+      <ConfirmedCasesRate>{$b/confirmed_cases_rate}</ConfirmedCasesRate>
+    </TGNData>
+    <BCNData>
+      <ConfirmedCases>{$b/confirmed_cases}</ConfirmedCases>
+      <ConfirmedCasesRate>{$b/confirmed_cases_rate}</ConfirmedCasesRate>
+    </BCNData>
+    <GironaData>
+     <ConfirmedCases>{$b/confirmed_cases}</ConfirmedCases>
+     <ConfirmedCasesRate>{$b/confirmed_cases_rate}</ConfirmedCasesRate>
+    </GironaData>
+  </AgrupatedData>
+  <IsolatedData>
+   <LleidaData>
+    <ConfirmedCases></ConfirmedCases>
+   </LleidaData>
+   <TGNData>
+    <ConfirmedCases></ConfirmedCases>
+   </TGNData>
+   <BCNData>
+    <ConfirmedCases></ConfirmedCases>
+   </BCNData>
+   <GironaData>
+    <ConfirmedCases></ConfirmedCases>
+   </GironaData>
+  </IsolatedData>
+</COVIDData>
