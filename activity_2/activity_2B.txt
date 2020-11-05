@@ -30,7 +30,7 @@
  ################################################################################
 
 INTRO: To simplify the process of defining the xPath expression requested in this
-       activity, we are going to use a "divide & conquer" strategy:
+       activity, we are going to follow a "divide & conquer" strategy:
 
 step #1: Firstly, we ONLY retrieve the 2nd previous element data (row). We can 
          achieve this simply by modifying the xPath expression defined in the 
@@ -49,11 +49,15 @@ step #2: Once we got the "confirmed_cases" value from two elements before the
 
          (/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/confirmed_cases/text())-(/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/preceding::row[2]/confirmed_cases/text())
 
-step #3: Now we can concatenate different xPath expressions (including the one 
-         defined in the previous step) to generate the output as requested in the 
-         assessment statement --> "custom_text" + "xPath_step2-selection" + "custom_text"
- 
-	
-         
+step #3: Now we can use the built-in xPath "concat()" function to concatenate 
+         different xPath expressions (we still do not include the one defined 
+         in the previous step) to generate the output as requested in the 
+         assessment statement: 
 
+	     concat('Hi ha hagut un increment de ','X',' casos')
+ 
+step #4: Finally, we just have to replace the "X" string in the step #3 with the
+         value return we get from the step #2 xPath expression:
+         
+         concat('Hi ha hagut un increment de ', (/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/confirmed_cases/text())-(/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/preceding::row[2]/confirmed_cases/text()),' casos')
  
