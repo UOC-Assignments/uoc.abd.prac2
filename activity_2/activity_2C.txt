@@ -30,7 +30,7 @@
  ################################################################################
 
 
-/response/row/row[ residence = 'No' and r0_confirmat_m > 1 ]/(concat(pcr_rate/text(),"-",start_date/text(),"-",end_date/text()))
+/response/row/row[ residence = 'No' and r0_confirmat_m > 1 ]/(concat(r0_confirmat_m/text(),"-",start_date/text(),"-",end_date/text()))
 
 
 
