@@ -1,5 +1,3 @@
-<?xml version = "1.0" encoding = "ISO-8859-1" ?>
-
  <!-- 
 
  ################################################################################
@@ -15,12 +13,12 @@
  #                                                                              #
  #                             PRACTICAL ASSIGNMENT #2                          #
  #                                                                              #
- #                       STUDENTS: Del Blanco García, Carles                    #
+ #                       STUDENTS: Del Blanco GarcÃ­a, Carles                    #
  #                                 Bericat Ruz, Jordi                           #
  #                                                                              #
  #                           TERM: Autumn 2020/21                               #
  #                    GITHUB REPO: UOC-Assignments/uoc.abd.prac2                #
- #                    FILE 1 OF n: activity_2A.xml                              #
+ #                    FILE 1 OF n: activity_2C.txt                              #
  #                        VERSION: 1.0                                          #
  #                                                                              #
  ################################################################################
@@ -31,16 +29,5 @@
  #                                                                              #
  ################################################################################
 
--->
-
-<!-- 1. XPATH SUB-QUERY: FIRST WE FIND A WAY TO RETRIEVE THE "confirmed_cases" 
-        NODE THAT CONTAINS THE MAXIMUM VALUE AMONG ALL REPETITIONS OF THE SAME 
-        ELEMENT IN THE PROVIDED XML  -->
-
-max(/response/row/row/confirmed_cases)
-
-<!-- 2. XPATH MAIN QUERY: NOW WE JUST HAVE TO SEARCH FOR THE "confirmed_cases" 
-        ELEMENT THAT MATCHES THE XPATH SUB-QUERY "RETURN" VALUE -->
-
-/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/start_date/text()
-
+concat(/response/row/row[((residence='No') and (r0_confirmat_m > 1))]/pcr_rate/text(),
+/response/row/row[((residence='No') and (r0_confirmat_m > 1))]/start_date/text()) 
