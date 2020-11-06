@@ -6,7 +6,7 @@
     AgrupatedData, were it has to show the situation for each province at the time where Lleida had the highest confirmed_cases. The format has to be as follows:
     
       - IsInResidence: containing the value at the node with the highest confirmed_cases from dadesLleida.xml
-      - MeasuramentData: containingstart_date value from the node  with the highest confirmed_cases at dadesLleida.xml
+      - MeasuramentData: containing start_date value from the node  with the highest confirmed_cases at dadesLleida.xml
     
       Both, isInresidence and MeasurementData will be used in orderto filter the othe xml files from the other provinces and get the value from confirmed_cases and confirmed_case_rate.
       We have to create the node for each capital LleidaData, TGNData, BCNData and GironaData, for every file we have to create.
@@ -15,41 +15,60 @@
     It's mandatory to get data containing Residence=”No”. Finally we 'll show the values confirmed_cases - start_date.    
 -->   
   
-for $b in /response/row/row
-let $mx := max(confirmed_cases)
-where $b/residence = "No"
-return
+declare variable $lleida := doc("Collection/dadesLleida.xml");
+declare variable $tarragona := doc("Collection/dadesTarragona.xml");
+declare variable $barcelona := doc("Collection/dadesBarcelona.xml");
+declare variable $girona := doc("Collection/dadesGirona.xml");
+
+let $maximlleidaCC := $lleida/response/row/row[confirmed_cases = max($lleida/response/row/row/confirmed_cases)]/confirmed_cases/text()
+let $maximlleidaCCR := $lleida/response/row/row[confirmed_cases = max($lleida/response/row/row/confirmed_cases)]/confirmed_cases_rate/text()
+let $maximlleidaD := $lleida/response/row/row[confirmed_cases = max($lleida/response/row/row/confirmed_cases)]/start_date/text()
+let $maximlleidaR := $lleida/response/row/row[confirmed_cases = max($lleida/response/row/row/confirmed_cases)]/residence/text()
+
+let $maximtarragonaCC := $tarragona/response/row/row[confirmed_cases = max($tarragona/response/row/row/confirmed_cases)]/confirmed_cases/text()
+let $maximtarragonaCCR := $tarragona/response/row/row[confirmed_cases = max($tarragona/response/row/row/confirmed_cases)]/confirmed_cases_rate/text()
+
+
+return 
 <COVIDData>
-  <AgrupatedData Isinresidences="{$b/residence}" MeasurementDate="{$b/start_date}">
+  <AgrupatedData Isinresidences="{$maximlleidaCC/residence}" MeasurementDate="{$maximlleidaCC/start_date}">
     <LleidaData>
-      <ConfirmedCases>{$b/confirmed_cases}</ConfirmedCases>
-      <ConfirmedCasesRate>{$b/confirmed_cases_rate}</ConfirmedCasesRate>
+      <confirmed_cases>{$maximlleidaCC}</confirmed_cases>
+      <confirmed_cases_rate>{$maximlleidaCCR}</confirmed_cases_rate>
     </LleidaData>
     <TGNData>
-      <ConfirmedCases>{$b/confirmed_cases}</ConfirmedCases>
-      <ConfirmedCasesRate>{$b/confirmed_cases_rate}</ConfirmedCasesRate>
+      <confirmed_cases>{$maximtarragonaCC}</confirmed_cases>
+      <confirmed_cases_rate>{$maximtarragonaCCR}</confirmed_cases_rate>
+    </TGNData>
+  </AgrupatedData>
+   <IsolatedData>
+    <LleidaData>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
+    </LleidaData>
+    <TGNData>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
     </TGNData>
     <BCNData>
-      <ConfirmedCases>{$b/confirmed_cases}</ConfirmedCases>
-      <ConfirmedCasesRate>{$b/confirmed_cases_rate}</ConfirmedCasesRate>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
     </BCNData>
     <GironaData>
-     <ConfirmedCases>{$b/confirmed_cases}</ConfirmedCases>
-     <ConfirmedCasesRate>{$b/confirmed_cases_rate}</ConfirmedCasesRate>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
+      <confirmedCases></confirmedCases>
     </GironaData>
-  </AgrupatedData>
-  <IsolatedData>
-   <LleidaData>
-    <ConfirmedCases></ConfirmedCases>
-   </LleidaData>
-   <TGNData>
-    <ConfirmedCases></ConfirmedCases>
-   </TGNData>
-   <BCNData>
-    <ConfirmedCases></ConfirmedCases>
-   </BCNData>
-   <GironaData>
-    <ConfirmedCases></ConfirmedCases>
-   </GironaData>
   </IsolatedData>
 </COVIDData>
