@@ -1,5 +1,4 @@
- <!-- 
-
+ 
  ################################################################################
  #                                                                              #
  #                       UOC - Open University of Catalonia                     #
@@ -18,17 +17,20 @@
  #                                                                              #
  #                           TERM: Autumn 2020/21                               #
  #                    GITHUB REPO: UOC-Assignments/uoc.abd.prac2                #
- #                    FILE 1 OF n: activity_2C.txt                              #
+ #                    FILE 1 OF n: activity_2/activity_2C.txt                   #
  #                        VERSION: 1.0                                          #
  #                                                                              #
  ################################################################################
 
  ################################################################################
  #                                                                              #
- #  DESCRIPTION:                                                                #
+ #  DESCRIPTION: ACTIVITY 2-C                                                   #
  #                                                                              #
  ################################################################################
 
+(SEE COMMENTS AT THE ASSIGMENT'S PDF MEMORY, SECTION 2-C)
+
+xPath expression:
 
 /response/row/row[ residence = 'No' and r0_confirmat_m > 1 ]/(concat(r0_confirmat_m/text(),"-",start_date/text(),"-",end_date/text()))
 
