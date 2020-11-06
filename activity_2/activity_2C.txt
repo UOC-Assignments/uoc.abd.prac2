@@ -30,9 +30,13 @@
  ################################################################################
 
 
-concat(((/response/row/row[residence = 'No' and r0_confirmat_m > 1])[1])/pcr_rate/text(),
-"-",((/response/row/row[residence = 'No' and r0_confirmat_m > 1])[1])/start_date/text(),
-"-",((/response/row/row[residence = 'No' and r0_confirmat_m > 1])[1])/end_date/text())
+/response/row/row[ residence = 'No' and r0_confirmat_m > 1 ]/(concat(pcr_rate/text(),"-",start_date/text(),"-",end_date/text()))
+
+
+
+
+
+
 
 
 
