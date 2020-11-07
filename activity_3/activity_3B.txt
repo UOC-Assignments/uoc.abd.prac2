@@ -1,0 +1,35 @@
+ (:
+ ################################################################################
+ #                                                                              #
+ #                       UOC - Open University of Catalonia                     #
+ #                                                                              #
+ ################################################################################
+
+ ################################################################################
+ #                                                                              #
+ #                             DATABASE ARCHITECTURES                           #
+ #                                  (ABD - 05607)                               #
+ #                                                                              #
+ #                             PRACTICAL ASSIGNMENT #2                          #
+ #                                                                              #
+ #                       STUDENTS: Del Blanco García, Carles                    #
+ #                                 Bericat Ruz, Jordi                           #
+ #                                                                              #
+ #                           TERM: Autumn 2020/21                               #
+ #                    GITHUB REPO: UOC-Assignments/uoc.abd.prac2                #
+ #                    FILE 1 OF n: activity_3/activity_3B.txt                   #
+ #                        VERSION: 1.0                                          #
+ #                                                                              #
+ ################################################################################
+
+ ################################################################################
+ #                                                                              #
+ #  DESCRIPTION: ACTIVITY 3-B                                                   #
+ #                                                                              #
+ ################################################################################
+
+(SEE COMMENTS AT THE ASSIGMENT'S PDF MEMORY, SECTION 3-B)
+
+xQuery sentence:)
+
+for $L in $doc("../lleida.xls")//response/row/row
