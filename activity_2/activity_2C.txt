@@ -1,4 +1,4 @@
- 
+ (:
  ################################################################################
  #                                                                              #
  #                       UOC - Open University of Catalonia                     #
@@ -30,7 +30,7 @@
 
 (SEE COMMENTS AT THE ASSIGMENT'S PDF MEMORY, SECTION 2-C)
 
-xPath expression:
+xPath expression:)
 
 /response/row/row[ residence = 'No' and r0_confirmat_m > 1 ]/(concat(r0_confirmat_m/text(),"-",start_date/text(),"-",end_date/text()))
 

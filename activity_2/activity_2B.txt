@@ -1,4 +1,4 @@
-
+(:
  ################################################################################
  #                                                                              #
  #                       UOC - Open University of Catalonia                     #
@@ -39,32 +39,38 @@ step #1: Firstly, we ONLY retrieve the 2nd previous element data (row). We can
          This allows us to go back two elements in evaluation direction, starting 
          from the hierarchy element pointed by the axe "prefix" (blue).
 
-         xPath expression:
+         xPath expression:)
 
          /response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/preceding::row[2]/confirmed_cases/text()
+
+(:
 
 step #2: Once we got the "confirmed_cases" value from two elements before the 
          maxiumum one, we can use the operators (-) defined in the xPath 
          specification (references: Bibliography [#1], page 59) to calculate the 
          increment of confirmed cases -> ((xPath_activity2A-selection)-(xPath_step1-selection))
 
-         xPath expression: 
+         xPath expression:)
      
          (/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/confirmed_cases/text())-(/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/preceding::row[2]/confirmed_cases/text())
+
+(:
 
 step #3: Now we can use the built-in xPath "concat()" function to concatenate 
          different xPath expressions (we still do not include the one defined 
          in the previous step) to generate the output as requested in the 
-         assessment statement: 
+         assessment statement.
 
-	     xPath expression: 
+	     xPath expression:)
  
          concat('Hi ha hagut un increment de ','X',' casos')
- 
+
+(:
+
 step #4: Finally, we just have to replace the "X" string in the step #3 with the
          value return we get from the step #2 xPath expression:
          
-         xPath expression:
+         xPath expression:)
 
          concat('Hi ha hagut un increment de ', (/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/confirmed_cases/text())-(/response/row/row[confirmed_cases = max(/response/row/row/confirmed_cases)]/preceding::row[2]/confirmed_cases/text()),' casos')
  
