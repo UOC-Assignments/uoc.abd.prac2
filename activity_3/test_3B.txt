@@ -1,0 +1,39 @@
+for $L in doc("dadesLleida.xml")//response/row/row
+where $L/residence = 'No' 
+let $LI := ($L/start_date/text())[5]
+return 
+<COVID>
+	<agrupatedData>
+		<LleidaData>
+			<ConfirmedCases>{$L/confirmed_cases/text()}</ConfirmedCases>
+			<ConfirmedCasesRate>{$L/confirmed_cases_rate/text()}</ConfirmedCasesRate>
+		</LleidaData>
+		<TarragonaData>
+			<ConfirmedCases></ConfirmedCases>
+			<ConfirmedCasesRate></ConfirmedCasesRate>
+		</TarragonaData>
+		<GironaData>
+			<ConfirmedCases></ConfirmedCases>
+			<ConfirmedCasesRate></ConfirmedCasesRate>
+		</GironaData>
+		<BarcelonaData>
+			<ConfirmedCases></ConfirmedCases>
+			<ConfirmedCasesRate></ConfirmedCasesRate>
+		</BarcelonaData>
+	</agrupatedData>
+	<isolatedData>
+		<LleidaData>
+			<ConfirmedCases>{$LI}</ConfirmedCases>
+		</LleidaData>
+		<TarragonaData>
+			<ConfirmedCases></ConfirmedCases>
+		</TarragonaData>
+		<GironaData>
+			<ConfirmedCases></ConfirmedCases>
+		</GironaData>
+		<BarcelonaData>
+			<ConfirmedCases></ConfirmedCases>
+		</BarcelonaData>
+	</isolatedData>
+</COVID>
+

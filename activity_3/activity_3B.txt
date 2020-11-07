@@ -36,10 +36,8 @@ v1.0 (TEST)
 
 for $L in doc("dadesLleida.xml")//response/row/row
 where $L/residence = 'No' 
-return <COVID>{$L/start_date/text()}</COVID>
-
-Return must be like:
-
+let $LI := $L/(start_date/text())[5]
+return 
 <COVID>
 	<agrupatedData>
 		<LleidaData>
@@ -61,7 +59,7 @@ Return must be like:
 	</agrupatedData>
 	<isolatedData>
 		<LleidaData>
-			<ConfirmedCases>{$L}</ConfirmedCases>
+			<ConfirmedCases>{$L/start_date/text()}</ConfirmedCases>
 		</LleidaData>
 		<TarragonaData>
 			<ConfirmedCases></ConfirmedCases>
