@@ -32,4 +32,46 @@
 
 xQuery sentence:)
 
-for $L in $doc("../lleida.xls")//response/row/row
+v.10 (TEST)
+
+for $L in doc("dadesLleida.xml")//response/row/row
+where $L/residence = 'No' 
+return <COVID>{$L}</COVID>
+
+Return must be like:
+
+<COVID>
+	<agrupatedData>
+		<LleidaData>
+			<ConfirmedCases></ConfirmedCases>
+			<ConfirmedCasesRate></ConfirmedCasesRate>
+		</LleidaData>
+		<TarragonaData>
+			<ConfirmedCases></ConfirmedCases>
+			<ConfirmedCasesRate></ConfirmedCasesRate>
+		</TarragonaData>
+		<GironaData>
+			<ConfirmedCases></ConfirmedCases>
+			<ConfirmedCasesRate></ConfirmedCasesRate>
+		</GironaData>
+		<BarcelonaData>
+			<ConfirmedCases></ConfirmedCases>
+			<ConfirmedCasesRate></ConfirmedCasesRate>
+		</BarcelonaData>
+	</agrupatedData>
+	<isolatedData>
+		<LleidaData>
+			<ConfirmedCases>{$L}</ConfirmedCases>
+		</LleidaData>
+		<TarragonaData>
+			<ConfirmedCases></ConfirmedCases>
+		</TarragonaData>
+		<GironaData>
+			<ConfirmedCases></ConfirmedCases>
+		</GironaData>
+		<BarcelonaData>
+			<ConfirmedCases></ConfirmedCases>
+		</BarcelonaData>
+	</isolatedData>
+</COVID>
+
