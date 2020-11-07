@@ -32,11 +32,11 @@
 
 xQuery sentence:)
 
-v.10 (TEST)
+v1.0 (TEST)
 
 for $L in doc("dadesLleida.xml")//response/row/row
 where $L/residence = 'No' 
-return <COVID>{$L}</COVID>
+return <COVID>{$L/start_date/text()}</COVID>
 
 Return must be like:
 
