@@ -14,7 +14,6 @@
     On the other hand at IsolatedData, we need to show for every region the five days containing the highest confirmed_Cases without considering data from the other regions. 
     It's mandatory to get data containing Residence=”No”. Finally we 'll show the values confirmed_cases - start_date.    
 -->   
-  
 declare variable $lleida := doc("Collection/dadesLleida.xml");
 declare variable $tarragona := doc("Collection/dadesTarragona.xml");
 declare variable $barcelona := doc("Collection/dadesBarcelona.xml");
@@ -43,32 +42,40 @@ return
   </AgrupatedData>
    <IsolatedData>
     <LleidaData>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
+      {
+      for $dadesLleida in $lleida//row
+      where $dadesLleida/residence = 'No'
+      order by xs:integer($dadesLleida/confirmed_cases) descending
+      return
+        <ConfirmedCases>{$dadesLleida/confirmed_cases/text(), '-', $dadesLleida/start_date/text()}</ConfirmedCases>
+      }
     </LleidaData>
-    <TGNData>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
+     <TGNData>
+      {
+      for $dadesTarragona in $tarragona//row
+      where $dadesTarragona/residence = 'No'
+      order by xs:integer($dadesTarragona/confirmed_cases) descending
+      return
+        <ConfirmedCases>{$dadesTarragona/confirmed_cases/text(), '-', $dadesTarragona/start_date/text()}</ConfirmedCases>
+      }
     </TGNData>
     <BCNData>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
+      {
+      for $dadesBarcelona in $barcelona//row
+      where $dadesBarcelona/residence = 'No'
+      order by xs:integer($dadesBarcelona/confirmed_cases) descending
+      return
+        <ConfirmedCases>{$dadesBarcelona/confirmed_cases/text(), '-', $dadesBarcelona/start_date/text()}</ConfirmedCases>
+      }
     </BCNData>
     <GironaData>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
-      <confirmedCases></confirmedCases>
+      {
+      for $dadesGirona in $girona//row
+      where $dadesGirona/residence = 'No'
+      order by xs:integer($dadesGirona/confirmed_cases) descending
+      return
+        <ConfirmedCases>{$dadesGirona/confirmed_cases/text(), '-', $dadesGirona/start_date/text()}</ConfirmedCases>
+      }
     </GironaData>
   </IsolatedData>
 </COVIDData>
