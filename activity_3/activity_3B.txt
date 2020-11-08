@@ -40,9 +40,8 @@ v1.0 (TEST) -> I got a first approach of the "agrupatedData" part that already w
                confirmed_cases (residence = no) and another with 75 cases (residence = yes). 
                I guess we should take the highest.
 
-v2.0 (AggrupatedData) -> the "AggrupatedData" already works (only implemented for Tarragona). 
-                         Now I just have to add the other regions and check that the results 
-                         are correct.
+v2.0 (AggrupatedData) -> the "AggrupatedData" already works. Now I just have to check the 
+                         correctness of the results are correct.
 
 declare variable $docLleida := doc("dadesLleida.xml");
 declare variable $docTarragona := doc("dadesTarragona.xml");
