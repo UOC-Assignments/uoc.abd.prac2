@@ -41,39 +41,47 @@ References -> https://stackoverflow.com/questions/30206069/xquery-find-max-value
 
 xQuery sentence:)
 
+(: #### First we define a variable set to refer the xml database #### :)
+
 declare variable $docLleida := doc("dadesLleida.xml");
 declare variable $docTarragona := doc("dadesTarragona.xml");
 declare variable $docGirona := doc("dadesGirona.xml");
 declare variable $docBarcelona := doc("dadesBarcelona.xml");
-let $maxLleida := max($docLleida/response/row/row/confirmed_cases)
-for $L in $docLleida /response/row/row (: Això d'aquí potser es pot fer amb un let, provar-ho un cop estigui funcionant ja que potser és mes eficient :)
-where $L/confirmed_cases = $maxLleida
-let $T := $docTarragona/response/row/row[start_date = $L/start_date]
-let $G := $docGirona/response/row/row[start_date = $L/start_date]
-let $B := $docBarcelona/response/row/row[start_date = $L/start_date]
+let $max_LLD := max($docLleida/response/row/row/confirmed_cases)
+for $Agrupated_LLD in $docLleida /response/row/row (: Això d'aquí potser es pot fer amb un let, provar-ho un cop estigui funcionant ja que potser és mes eficient :)
+where $Agrupated_LLD/confirmed_cases = $max_LLD
+let $Agrupated_TGN := $docTarragona/response/row/row[start_date = $Agrupated_LLD/start_date]
+let $Agrupated_GIR := $docGirona/response/row/row[start_date = $Agrupated_LLD/start_date]
+let $Agrupated_BCN := $docBarcelona/response/row/row[start_date = $Agrupated_LLD/start_date]
+(:for
+where
+let $Isolated_Lleida 
+let $IT
+let $IG
+let $IB :)
 return 
 <COVID>
-	<agrupatedData isInResidences="{$L/residence/text()}" MeasurementDate="{$L/start_date/text()}">
+	<agrupatedData isInResidences="{$Agrupated_LLD/residence/text()}" MeasurementDate="{$Agrupated_LLD/start_date/text()}">
 		<LleidaData>
-			<ConfirmedCases>{$L/confirmed_cases/text()}</ConfirmedCases>
-			<ConfirmedCasesRate>{$L/confirmed_cases_rate/text()}</ConfirmedCasesRate>
+			<ConfirmedCases>{$Agrupated_LLD/confirmed_cases/text()}</ConfirmedCases>
+			<ConfirmedCasesRate>{$Agrupated_LLD/confirmed_cases_rate/text()}</ConfirmedCasesRate>
 		</LleidaData>
 		<TarragonaData>
-			<ConfirmedCases>{$T[confirmed_cases = max($T/confirmed_cases)]/confirmed_cases/text()}</ConfirmedCases>
-			<ConfirmedCasesRate>{$T[confirmed_cases = max($T/confirmed_cases)]/confirmed_cases_rate/text()}</ConfirmedCasesRate>
+			<ConfirmedCases>{$Agrupated_TGN[confirmed_cases = max($Agrupated_TGN/confirmed_cases)]/confirmed_cases/text()}</ConfirmedCases>
+			<ConfirmedCasesRate>{$Agrupated_TGN[confirmed_cases = max($Agrupated_TGN/confirmed_cases)]/confirmed_cases_rate/text()}</ConfirmedCasesRate>
 		</TarragonaData>
 		<GironaData>
-			<ConfirmedCases>{$G[confirmed_cases = max($G/confirmed_cases)]/confirmed_cases/text()}</ConfirmedCases>
-			<ConfirmedCasesRate>{$G[confirmed_cases = max($G/confirmed_cases)]/confirmed_cases_rate/text()}</ConfirmedCasesRate>
+			<ConfirmedCases>{$Agrupated_GIR[confirmed_cases = max($Agrupated_GIR/confirmed_cases)]/confirmed_cases/text()}</ConfirmedCases>
+			<ConfirmedCasesRate>{$Agrupated_GIR[confirmed_cases = max($Agrupated_GIR/confirmed_cases)]/confirmed_cases_rate/text()}</ConfirmedCasesRate>
 		</GironaData>
 		<BarcelonaData>
-			<ConfirmedCases>{$B[confirmed_cases = max($B/confirmed_cases)]/confirmed_cases/text()}</ConfirmedCases>
-			<ConfirmedCasesRate>{$B[confirmed_cases = max($B/confirmed_cases)]/confirmed_cases_rate/text()}</ConfirmedCasesRate>
+			<ConfirmedCases>{$Agrupated_BCN[confirmed_cases = max($Agrupated_BCN/confirmed_cases)]/confirmed_cases/text()}</ConfirmedCases>
+			<ConfirmedCasesRate>{$Agrupated_BCN[confirmed_cases = max($Agrupated_BCN/confirmed_cases)]/confirmed_cases_rate/text()}</ConfirmedCasesRate>
 		</BarcelonaData>
 	</agrupatedData>
 	<isolatedData>
 		<LleidaData>
-			<ConfirmedCases></ConfirmedCases>
+			<ConfirmedCases>{}</ConfirmedCases>
 		</LleidaData>
 		<TarragonaData>
 			<ConfirmedCases></ConfirmedCases>
