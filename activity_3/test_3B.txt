@@ -3,8 +3,7 @@ declare variable $docTarragona := doc("dadesTarragona.xml");
 let $max := max($docLleida/response/row/row/confirmed_cases)
 for $L in $docLleida /response/row/row
 where $L/confirmed_cases = $max
-for $T in $docTarragona /response/row/row
-where $T/start_date = $L/start_date
+let $T := $docTarragona/response/row/row[start_date = $L/start_date]
 return 
 <COVID>
 	<agrupatedData isInResidences="{$L/residence/text()}" MeasurementDate="{$L/start_date/text()}">
@@ -13,8 +12,8 @@ return
 			<ConfirmedCasesRate>{$L/confirmed_cases_rate/text()}</ConfirmedCasesRate>
 		</LleidaData>
 		<TarragonaData>
-			<ConfirmedCases>{$T/confirmed_cases/text()}</ConfirmedCases>
-			<ConfirmedCasesRate></ConfirmedCasesRate>
+			<ConfirmedCases>{$T[confirmed_cases = max($T/confirmed_cases)]/confirmed_cases/text()}</ConfirmedCases>
+			<ConfirmedCasesRate>{$T[confirmed_cases = max($T/confirmed_cases)]/confirmed_cases_rate/text()}</ConfirmedCasesRate>
 		</TarragonaData>
 		<GironaData>
 			<ConfirmedCases></ConfirmedCases>
