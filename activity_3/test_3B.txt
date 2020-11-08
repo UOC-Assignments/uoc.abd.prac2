@@ -1,17 +1,20 @@
 declare variable $docLleida := doc("dadesLleida.xml");
-let $maxContagisLleida := max($L/confirmed_cases);
+declare variable $docTarragona := doc("dadesTarragona.xml");
+let $max := max($docLleida/response/row/row/confirmed_cases)
 for $L in $docLleida /response/row/row
-where $L/confirmed_cases = $maxContagisLleida 
-let $LI := ($L/start_date/text())[5]
+where $L/confirmed_cases = $max
+let $start_date := $L/start_date
+let $tarragonaCases := $docTarragona/response/row/row[start_date = $L/start_date and confirmed_cases = max(.)]/confirmed_cases/text()
 return 
 <COVID>
 	<agrupatedData>
 		<LleidaData>
 			<ConfirmedCases>{$L/confirmed_cases/text()}</ConfirmedCases>
 			<ConfirmedCasesRate>{$L/confirmed_cases_rate/text()}</ConfirmedCasesRate>
+			<startDate>{$L/start_date/text()}</startDate>
 		</LleidaData>
 		<TarragonaData>
-			<ConfirmedCases></ConfirmedCases>
+			<ConfirmedCases>{$tarragonaCases/text()}</ConfirmedCases>
 			<ConfirmedCasesRate></ConfirmedCasesRate>
 		</TarragonaData>
 		<GironaData>
@@ -25,7 +28,7 @@ return
 	</agrupatedData>
 	<isolatedData>
 		<LleidaData>
-			<ConfirmedCases>{$LI}</ConfirmedCases>
+			<ConfirmedCases></ConfirmedCases>
 		</LleidaData>
 		<TarragonaData>
 			<ConfirmedCases></ConfirmedCases>
@@ -38,4 +41,3 @@ return
 		</BarcelonaData>
 	</isolatedData>
 </COVID>
-
