@@ -1,4 +1,5 @@
  (:
+
  ################################################################################
  #                                                                              #
  #                       UOC - Open University of Catalonia                     #
@@ -28,18 +29,7 @@
  #                                                                              #
  ################################################################################
 
-(SEE COMMENTS AT THE ASSIGMENT'S PDF MEMORY, SECTION 3-B)
-
-v3.0 (AggrupatedData + isolatedData) -> 
-
-References -> https://stackoverflow.com/questions/30206069/xquery-find-max-value-and-return-relevant-information
-              https://www.tutorialspoint.com/xquery/xquery_max.htm
-              https://www.w3schools.com/xml/xquery_functions.asp
-              http://edutechwiki.unige.ch/en/XQuery_tutorial_-_basics#:~:text=declare%20variable%20%24x%20%3A%3D%207.5,the%20datatype%20of%20the%20result.
-              https://docs.oracle.com/cd/E13162_01/odsi/docs10gr3/datasrvc/Add%20a%20Where%20Clause%20to%20a%20Query.html#:~:text=eq%20%24CUSTOMER_ORDER%2FC_ID-,Use%20an%20XQuery%20Function%20in%20a%20Where%20Clause,Click%20Query%20Map.
-              Bibliography[#1], pages XX-YY
-
-xQuery sentence:)
+(SEE COMMENTS AT THE ASSIGMENT'S PDF MEMORY, SECTION 3-B :)
 
 (: #### First we define a variable set to refer the xml database #### :)
 
@@ -112,3 +102,19 @@ return
 		</BarcelonaData>
 	</isolatedData>
 </COVID>
+
+(:
+
+ ################################################################################
+ #                                                                              #
+ #                           REFERENCES / BIBLIOGRAPHY                          #
+ #                                                                              #
+ ################################################################################
+
+ https://stackoverflow.com/questions/30206069/xquery-find-max-value-and-return-relevant-information
+              https://www.tutorialspoint.com/xquery/xquery_max.htm
+              https://www.w3schools.com/xml/xquery_functions.asp
+              http://edutechwiki.unige.ch/en/XQuery_tutorial_-_basics#:~:text=declare%20variable%20%24x%20%3A%3D%207.5,the%20datatype%20of%20the%20result.
+              https://docs.oracle.com/cd/E13162_01/odsi/docs10gr3/datasrvc/Add%20a%20Where%20Clause%20to%20a%20Query.html#:~:text=eq%20%24CUSTOMER_ORDER%2FC_ID-,Use%20an%20XQuery%20Function%20in%20a%20Where%20Clause,Click%20Query%20Map.
+              Bibliography[#1], pages XX-YY
+:)
