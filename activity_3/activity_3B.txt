@@ -1,4 +1,4 @@
- (:
+(:
 
  ################################################################################
  #                                                                              #
@@ -25,24 +25,38 @@
 
  ################################################################################
  #                                                                              #
- #  DESCRIPTION: ACTIVITY 3-B                                                   #
+ #  DESCRIPTION: ACTIVITY 3-B (SEE COMMENTS AT THE ASSIGMENT'S PDF MEMORY,      #
+ #              SECTION 3-B                                                     #
  #                                                                              #
- ################################################################################
+ ################################################################################ :)
 
-(SEE COMMENTS AT THE ASSIGMENT'S PDF MEMORY, SECTION 3-B :)
-
-(: #### First we define a variable set to refer the xml database #### :)
+(: #### 1. First we define a variable set to refer the xml database #### :)
 
 declare variable $docLleida := doc("dadesLleida.xml");
 declare variable $docTarragona := doc("dadesTarragona.xml");
 declare variable $docGirona := doc("dadesGirona.xml");
 declare variable $docBarcelona := doc("dadesBarcelona.xml");
+
+(: #### 2.  #### :)
+
 let $max_LLD := max($docLleida/response/row/row/confirmed_cases)
-for $Agrupated_LLD in $docLleida /response/row/row (: Això d'aquí potser es pot fer amb un let, provar-ho un cop estigui funcionant ja que potser és mes eficient :)
+
+(: #### 3.  #### :)
+
+for $Agrupated_LLD in $docLleida /response/row/row 
+
+(: #### 4.  #### :)
+
 where $Agrupated_LLD/confirmed_cases = $max_LLD
+
+(: #### 5.  #### :)
+
 let $Agrupated_TGN := $docTarragona/response/row/row[start_date = $Agrupated_LLD/start_date]
 let $Agrupated_GIR := $docGirona/response/row/row[start_date = $Agrupated_LLD/start_date]
 let $Agrupated_BCN := $docBarcelona/response/row/row[start_date = $Agrupated_LLD/start_date]
+
+(: #### 6.  #### :)
+
 return 
 <COVID>
 	<agrupatedData isInResidences="{$Agrupated_LLD/residence/text()}" MeasurementDate="{$Agrupated_LLD/start_date/text()}">
