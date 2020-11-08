@@ -31,7 +31,7 @@
 (SEE COMMENTS AT THE ASSIGMENT'S PDF MEMORY, SECTION 3-B)
 
 v2.0 (AggrupatedData) -> the "AggrupatedData" already works. Now I just have to check the 
-                         correctness of the results are correct.
+                         correctness of the results are correct..
 
 xQuery sentence:)
 
