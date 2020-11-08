@@ -18,7 +18,7 @@
  #                           TERM: Autumn 2020/21                               #
  #                    GITHUB REPO: UOC-Assignments/uoc.abd.prac2                #
  #                    FILE 1 OF n: activity_3/activity_3B.txt                   #
- #                        VERSION: 1.0                                          #
+ #                        VERSION: 3.0                                          #
  #                                                                              #
  ################################################################################
 
@@ -30,8 +30,14 @@
 
 (SEE COMMENTS AT THE ASSIGMENT'S PDF MEMORY, SECTION 3-B)
 
-v2.0 (AggrupatedData) -> the "AggrupatedData" already works. Now I just have to check the 
-                         correctness of the results are correct..
+v3.0 (AggrupatedData + isolatedData) -> 
+
+References -> https://stackoverflow.com/questions/30206069/xquery-find-max-value-and-return-relevant-information
+              https://www.tutorialspoint.com/xquery/xquery_max.htm
+              https://www.w3schools.com/xml/xquery_functions.asp
+              http://edutechwiki.unige.ch/en/XQuery_tutorial_-_basics#:~:text=declare%20variable%20%24x%20%3A%3D%207.5,the%20datatype%20of%20the%20result.
+              https://docs.oracle.com/cd/E13162_01/odsi/docs10gr3/datasrvc/Add%20a%20Where%20Clause%20to%20a%20Query.html#:~:text=eq%20%24CUSTOMER_ORDER%2FC_ID-,Use%20an%20XQuery%20Function%20in%20a%20Where%20Clause,Click%20Query%20Map.
+              Bibliography[#1], pages XX-YY
 
 xQuery sentence:)
 
@@ -39,9 +45,9 @@ declare variable $docLleida := doc("dadesLleida.xml");
 declare variable $docTarragona := doc("dadesTarragona.xml");
 declare variable $docGirona := doc("dadesGirona.xml");
 declare variable $docBarcelona := doc("dadesBarcelona.xml");
-let $max := max($docLleida/response/row/row/confirmed_cases)
+let $maxLleida := max($docLleida/response/row/row/confirmed_cases)
 for $L in $docLleida /response/row/row (: Això d'aquí potser es pot fer amb un let, provar-ho un cop estigui funcionant ja que potser és mes eficient :)
-where $L/confirmed_cases = $max
+where $L/confirmed_cases = $maxLleida
 let $T := $docTarragona/response/row/row[start_date = $L/start_date]
 let $G := $docGirona/response/row/row[start_date = $L/start_date]
 let $B := $docBarcelona/response/row/row[start_date = $L/start_date]
