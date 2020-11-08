@@ -53,12 +53,6 @@ where $Agrupated_LLD/confirmed_cases = $max_LLD
 let $Agrupated_TGN := $docTarragona/response/row/row[start_date = $Agrupated_LLD/start_date]
 let $Agrupated_GIR := $docGirona/response/row/row[start_date = $Agrupated_LLD/start_date]
 let $Agrupated_BCN := $docBarcelona/response/row/row[start_date = $Agrupated_LLD/start_date]
-(:for
-where
-let $Isolated_Lleida 
-let $IT
-let $IG
-let $IB :)
 return 
 <COVID>
 	<agrupatedData isInResidences="{$Agrupated_LLD/residence/text()}" MeasurementDate="{$Agrupated_LLD/start_date/text()}">
@@ -80,17 +74,41 @@ return
 		</BarcelonaData>
 	</agrupatedData>
 	<isolatedData>
-		<LleidaData>
-			<ConfirmedCases>{}</ConfirmedCases>
+		<LleidaData> 
+			{for $Isolated_LLD in $docLleida//row
+			where $Isolated_LLD/residence = 'No'
+			order by xs:integer($Isolated_LLD/confirmed_cases) descending
+			count $item
+			where $item le 5
+			return
+			<ConfirmedCases>{$Isolated_LLD/confirmed_cases/text(), '-', $Isolated_LLD/start_date/text()}</ConfirmedCases>}
 		</LleidaData>
 		<TarragonaData>
-			<ConfirmedCases></ConfirmedCases>
+			{for $Isolated_TGN in $docTarragona//row
+			where $Isolated_TGN/residence = 'No'
+			order by xs:integer($Isolated_TGN/confirmed_cases) descending
+			count $item
+			where $item le 5
+			return
+			<ConfirmedCases>{$Isolated_TGN/confirmed_cases/text(), '-', $Isolated_TGN/start_date/text()}</ConfirmedCases>}
 		</TarragonaData>
 		<GironaData>
-			<ConfirmedCases></ConfirmedCases>
+			{for $Isolated_GIR in $docGirona//row
+			where $Isolated_GIR/residence = 'No'
+			order by xs:integer($Isolated_GIR/confirmed_cases) descending
+			count $item
+			where $item le 5
+			return
+			<ConfirmedCases>{$Isolated_GIR/confirmed_cases/text(), '-', $Isolated_GIR/start_date/text()}</ConfirmedCases>}
 		</GironaData>
 		<BarcelonaData>
-			<ConfirmedCases></ConfirmedCases>
+			{for $Isolated_BCN in $docBarcelona//row
+			where $Isolated_BCN/residence = 'No'
+			order by xs:integer($Isolated_BCN/confirmed_cases) descending
+			count $item
+			where $item le 5
+			return
+			<ConfirmedCases>{$Isolated_BCN/confirmed_cases/text(), '-', $Isolated_BCN/start_date/text()}</ConfirmedCases>}
 		</BarcelonaData>
 	</isolatedData>
 </COVID>
