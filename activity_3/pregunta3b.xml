@@ -46,15 +46,19 @@ return
       for $dadesLleida in $lleida//row
       where $dadesLleida/residence = 'No'
       order by xs:integer($dadesLleida/confirmed_cases) descending
+      count $item
+      where $item le 5
       return
-        <ConfirmedCases>{$dadesLleida/confirmed_cases/text(), '-', $dadesLleida/start_date/text()}</ConfirmedCases>
+       <ConfirmedCases>{$dadesLleida/confirmed_cases/text(), '-', $dadesLleida/start_date/text()}</ConfirmedCases>
       }
-    </LleidaData>
+    </LleidaData>    
      <TGNData>
       {
       for $dadesTarragona in $tarragona//row
       where $dadesTarragona/residence = 'No'
       order by xs:integer($dadesTarragona/confirmed_cases) descending
+      count $item
+      where $item le 5
       return
         <ConfirmedCases>{$dadesTarragona/confirmed_cases/text(), '-', $dadesTarragona/start_date/text()}</ConfirmedCases>
       }
@@ -64,6 +68,8 @@ return
       for $dadesBarcelona in $barcelona//row
       where $dadesBarcelona/residence = 'No'
       order by xs:integer($dadesBarcelona/confirmed_cases) descending
+      count $item
+      where $item le 5
       return
         <ConfirmedCases>{$dadesBarcelona/confirmed_cases/text(), '-', $dadesBarcelona/start_date/text()}</ConfirmedCases>
       }
@@ -73,6 +79,8 @@ return
       for $dadesGirona in $girona//row
       where $dadesGirona/residence = 'No'
       order by xs:integer($dadesGirona/confirmed_cases) descending
+      count $item
+      where $item le 5
       return
         <ConfirmedCases>{$dadesGirona/confirmed_cases/text(), '-', $dadesGirona/start_date/text()}</ConfirmedCases>
       }
