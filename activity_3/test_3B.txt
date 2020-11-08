@@ -1,5 +1,7 @@
-for $L in doc("dadesLleida.xml")//response/row/row
-where $L/residence = 'No' 
+declare variable $docLleida := doc("dadesLleida.xml");
+let $maxContagisLleida := max($L/confirmed_cases);
+for $L in $docLleida /response/row/row
+where $L/confirmed_cases = $maxContagisLleida 
 let $LI := ($L/start_date/text())[5]
 return 
 <COVID>

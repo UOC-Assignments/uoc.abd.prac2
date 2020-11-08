@@ -32,20 +32,31 @@
 
 xQuery sentence:)
 
-v1.0 (TEST)
+v1.0 (TEST) -> already works to retrieve the confirmed_cases from tarragona's 
+               same week when there was a max in Lleida, but I think I must cap-out the 
+               results to the maximum value, since I get two results for tarragona  
+               (for example, there are two entires for 15/07, one with 0 cases and 
+               another with 75. I think we should take the highest, I'll keep working 
+               on it sunday afternoon)
 
-for $L in doc("dadesLleida.xml")//response/row/row
-where $L/residence = 'No' 
-let $LI := $L/(start_date/text())[5]
+declare variable $docLleida := doc("dadesLleida.xml");
+declare variable $docTarragona := doc("dadesTarragona.xml");
+let $max := max($docLleida/response/row/row/confirmed_cases)
+for $L in $docLleida /response/row/row
+where $L/confirmed_cases = $max
+let $start_date := $L/start_date
+for $T in $docTarragona /response/row/row
+where $T/start_date = $start_date
 return 
 <COVID>
 	<agrupatedData>
 		<LleidaData>
-			<ConfirmedCases></ConfirmedCases>
-			<ConfirmedCasesRate></ConfirmedCasesRate>
+			<ConfirmedCases>{$L/confirmed_cases/text()}</ConfirmedCases>
+			<ConfirmedCasesRate>{$L/confirmed_cases_rate/text()}</ConfirmedCasesRate>
+			<startDate>{$L/start_date/text()}</startDate>
 		</LleidaData>
 		<TarragonaData>
-			<ConfirmedCases></ConfirmedCases>
+			<ConfirmedCases>{$T/confirmed_cases/text()}</ConfirmedCases>
 			<ConfirmedCasesRate></ConfirmedCasesRate>
 		</TarragonaData>
 		<GironaData>
@@ -59,7 +70,7 @@ return
 	</agrupatedData>
 	<isolatedData>
 		<LleidaData>
-			<ConfirmedCases>{$L/start_date/text()}</ConfirmedCases>
+			<ConfirmedCases></ConfirmedCases>
 		</LleidaData>
 		<TarragonaData>
 			<ConfirmedCases></ConfirmedCases>
@@ -72,4 +83,3 @@ return
 		</BarcelonaData>
 	</isolatedData>
 </COVID>
-
