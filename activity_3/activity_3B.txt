@@ -46,10 +46,14 @@ v2.0 (AggrupatedData) -> the "AggrupatedData" already works (only implemented fo
 
 declare variable $docLleida := doc("dadesLleida.xml");
 declare variable $docTarragona := doc("dadesTarragona.xml");
+declare variable $docGirona := doc("dadesGirona.xml");
+declare variable $docBarcelona := doc("dadesBarcelona.xml");
 let $max := max($docLleida/response/row/row/confirmed_cases)
 for $L in $docLleida /response/row/row (: Això d'aquí potser es pot fer amb un let, provar-ho un cop estigui funcionant ja que potser és mes eficient :)
 where $L/confirmed_cases = $max
 let $T := $docTarragona/response/row/row[start_date = $L/start_date]
+let $G := $docGirona/response/row/row[start_date = $L/start_date]
+let $B := $docBarcelona/response/row/row[start_date = $L/start_date]
 return 
 <COVID>
 	<agrupatedData isInResidences="{$L/residence/text()}" MeasurementDate="{$L/start_date/text()}">
@@ -62,12 +66,12 @@ return
 			<ConfirmedCasesRate>{$T[confirmed_cases = max($T/confirmed_cases)]/confirmed_cases_rate/text()}</ConfirmedCasesRate>
 		</TarragonaData>
 		<GironaData>
-			<ConfirmedCases></ConfirmedCases>
-			<ConfirmedCasesRate></ConfirmedCasesRate>
+			<ConfirmedCases>{$G[confirmed_cases = max($G/confirmed_cases)]/confirmed_cases/text()}</ConfirmedCases>
+			<ConfirmedCasesRate>{$G[confirmed_cases = max($G/confirmed_cases)]/confirmed_cases_rate/text()}</ConfirmedCasesRate>
 		</GironaData>
 		<BarcelonaData>
-			<ConfirmedCases></ConfirmedCases>
-			<ConfirmedCasesRate></ConfirmedCasesRate>
+			<ConfirmedCases>{$B[confirmed_cases = max($B/confirmed_cases)]/confirmed_cases/text()}</ConfirmedCases>
+			<ConfirmedCasesRate>{$B[confirmed_cases = max($B/confirmed_cases)]/confirmed_cases_rate/text()}</ConfirmedCasesRate>
 		</BarcelonaData>
 	</agrupatedData>
 	<isolatedData>
