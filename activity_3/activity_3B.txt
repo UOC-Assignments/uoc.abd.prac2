@@ -32,12 +32,13 @@
 
 xQuery sentence:)
 
-v1.0 (TEST) -> already works to retrieve the confirmed_cases from tarragona's 
-               same week when there was a max in Lleida, but I think I must cap-out the 
-               results to the maximum value, since I get two results for tarragona  
-               (for example, there are two entires for 15/07, one with 0 cases and 
-               another with 75. I think we should take the highest, I'll keep working 
-               on it sunday afternoon)
+v1.0 (TEST) -> I got a first approach of the "agrupatedData" part that already works 
+               to retrieve the confirmed_cases from Tarragona's same week when there's 
+               a max in Lleida. However, I think I must cap-out the results to the 
+               maximum value from the filtered ones, since I get two results for Tarragona. 
+               For example, there are two nodes for the 15/07/2020 date, one with 0 
+               confirmed_cases (residence = no) and another with 75 cases (residence = yes). 
+               I guess we should take the highest.
 
 declare variable $docLleida := doc("dadesLleida.xml");
 declare variable $docTarragona := doc("dadesTarragona.xml");
