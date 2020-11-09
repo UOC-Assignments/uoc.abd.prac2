@@ -40,7 +40,12 @@ return
       <confirmed_cases_rate>{$maximtarragonaCCR}</confirmed_cases_rate>
     </TGNData>
   </AgrupatedData>
-   <IsolatedData>
+
+    <-- In every region (using for) we filter for every row node which has residence value as "No" through the clause "where" then as we have to provide the 5 highest confirmed cases 
+    we first sort the output using the clause "order by" and finally we just take the first five using "count" reaching 5.
+    From here we return the information using the requested output format, showing the confirmed cases and it's start_date from the own region
+    -->  
+    <IsolatedData>
     <LleidaData>
       {
       for $dadesLleida in $lleida//row
