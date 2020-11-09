@@ -43,7 +43,7 @@ declare variable $docBarcelona := doc("dadesBarcelona.xml");
 
 (:############################################################################### 
 
-    STEP 2 -> Now we just retrieve the maximum value among all the 
+    STEP 2 -> Now we only retrieve the maximum value among all the 
               "confirmed_cases" elements in the "dadesLleida.xml" DB, so later we 
               could retrieve the related "start_date" element value and then filter  
               the results retrieved from the other xml databases using this value
@@ -62,6 +62,7 @@ let $max_LLD := max($docLleida/response/row/row/confirmed_cases)
  ################################################################################:)
 
 for $Agrupated_LLD in $docLleida /response/row/row 
+where $Agrupated_LLD/confirmed_cases = $max_LLD
 
 (:############################################################################### 
 
@@ -69,19 +70,15 @@ for $Agrupated_LLD in $docLleida /response/row/row
 
  ################################################################################:)
 
-where $Agrupated_LLD/confirmed_cases = $max_LLD
-
-(:############################################################################### 
-
-    STEP 5 ->  
-
- ################################################################################:)
-
 let $Agrupated_TGN := $docTarragona/response/row/row[start_date = $Agrupated_LLD/start_date]
 let $Agrupated_GIR := $docGirona/response/row/row[start_date = $Agrupated_LLD/start_date]
 let $Agrupated_BCN := $docBarcelona/response/row/row[start_date = $Agrupated_LLD/start_date]
 
-(: 6. Finally, we define the xQuery return clause (EXTEND........) :)
+(:############################################################################### 
+
+    STEP 5 -> Finally, we define the xQuery return clause (EXTEND........)
+
+ ################################################################################:)
 
 return 
 <COVID>
@@ -151,7 +148,7 @@ return
  #                                                                              #
  ################################################################################
 
- https://stackoverflow.com/questions/30206069/xquery-find-max-value-and-return-relevant-information
+              https://stackoverflow.com/questions/30206069/xquery-find-max-value-and-return-relevant-information
               https://www.tutorialspoint.com/xquery/xquery_max.htm
               https://www.w3schools.com/xml/xquery_functions.asp
               http://edutechwiki.unige.ch/en/XQuery_tutorial_-_basics#:~:text=declare%20variable%20%24x%20%3A%3D%207.5,the%20datatype%20of%20the%20result.
