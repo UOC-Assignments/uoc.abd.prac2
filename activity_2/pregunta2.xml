@@ -1,6 +1,0 @@
-<-- pregunta 2a -->
-no funciona   /response/row/[not(../row/confirmed_cases > confirmed_cases)]/start_date
-/response/row/row/[not(../row/confirmed_cases>confirmed_cases)] (retorna true al valor mes alt )
-
-
-<-- pregunta 2b -->
