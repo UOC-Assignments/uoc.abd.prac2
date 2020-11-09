@@ -32,7 +32,7 @@
 
 (:############################################################################### 
 
-    STEP 1 -> First we define a variable set to refer the xml database: 
+    STEP 1 -> First we define a variable set to refer the xml databases: 
 
  ################################################################################:)
 
@@ -86,7 +86,16 @@ let $Agrupated_BCN := $docBarcelona/response/row/row[start_date = $Agrupated_LLD
               structured XML string including two main nodes or branches: 
               (1) AgrupatedData and (2) IsolatedData. 
 
-              1. AgrupatedData:
+              1. AgrupatedData: Here, from within the <ConfirmedCases> xml 
+                                subelement we retrieve (for each region) the nodes 
+                                we already stored in the $Agrupated_XXX variables. 
+                                However, since we only want the maximum value on a 
+                                single date (the same one as in the Lleida region 
+                                with max "confirmed_cases" values), we will have 
+                                to apply another predicate filter on the parent 
+                                node (so we can also retrieve the 
+                                "confirmed_cases_rate" value)                                
+                                
 
               2. IsolatedData:
 
