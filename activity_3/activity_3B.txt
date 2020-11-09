@@ -114,8 +114,8 @@
 
  ###############################################################################:)
 
-return 
-<COVID>
+ return 
+ <COVID>
 	<agrupatedData isInResidences="{$Agrupated_LLD/residence/text()}" MeasurementDate="{$Agrupated_LLD/start_date/text()}">
 		<LleidaData>
 			<ConfirmedCases>{$Agrupated_LLD/confirmed_cases/text()}</ConfirmedCases>
@@ -172,7 +172,7 @@ return
 			<ConfirmedCases>{$Isolated_BCN/confirmed_cases/text(), '-', $Isolated_BCN/start_date/text()}</ConfirmedCases>}
 		</BarcelonaData>
 	</isolatedData>
-</COVID>
+ </COVID>
 
 (:
 
