@@ -1,0 +1,191 @@
+(:
+
+ ################################################################################
+ #                                                                              #
+ #                       UOC - Open University of Catalonia                     #
+ #                                                                              #
+ ################################################################################
+
+ ################################################################################
+ #                                                                              #
+ #                             DATABASE ARCHITECTURES                           #
+ #                                  (ABD - 05607)                               #
+ #                                                                              #
+ #                             PRACTICAL ASSIGNMENT #2                          #
+ #                                                                              #
+ #                       STUDENTS: Del Blanco García, Carles                    #
+ #                                 Bericat Ruz, Jordi                           #
+ #                                                                              #
+ #                           TERM: Autumn 2020/21                               #
+ #                    GITHUB REPO: UOC-Assignments/uoc.abd.prac2                #
+ #                    FILE 1 OF n: activity_3/activity_3B.txt                   #
+ #                        VERSION: 3.0                                          #
+ #                                                                              #
+ ################################################################################
+
+ ################################################################################
+ #                                                                              #
+ #  DESCRIPTION: ACTIVITY 3-B                                                   #
+ #                                                                              #
+ ################################################################################ :)
+
+
+(:############################################################################### 
+
+ STEP 1 -> First we define a variable set to refer the xml databases: 
+
+ ###############################################################################:)
+
+ declare variable $docLleida := doc("dadesLleida.xml");
+ declare variable $docTarragona := doc("dadesTarragona.xml");
+ declare variable $docGirona := doc("dadesGirona.xml");
+ declare variable $docBarcelona := doc("dadesBarcelona.xml");
+
+(:############################################################################### 
+
+ STEP 2 -> Now we only retrieve the maximum value among all the 
+           "confirmed_cases" elements in the "dadesLleida.xml" DB, so later we 
+           could retrieve the related "start_date" element value and then 
+           filter  the results retrieved from the other xml databases using 
+           this value as a key (that is, we retrieve the start_date element). 
+           We achieve this by means of assigning the value returned by the 
+           max() function into a variable using the "let" clause: 
+
+ ###############################################################################:)
+
+ let $max_LLD := max($docLleida/response/row/row/confirmed_cases)
+
+(:############################################################################### 
+
+ STEP 3 -> Next, we select the parent element (using the "for" clause) that 
+           has the "confirmed_cases" maximum value (condition defined in the 
+           "where" clause) from the "dadesLleida.xml" DB.
+
+ ###############################################################################:)
+
+ for $Agrupated_LLD in $docLleida /response/row/row 
+ where $Agrupated_LLD/confirmed_cases = $max_LLD
+
+(:############################################################################### 
+
+ STEP 4 -> Now, using the data from the node selected (one) in the previous 
+           step using the "for" clause, we can set an xPath predicate filter 
+           to retrieve ALL the nodes (xml data can be segmented) that contain 
+           the same value (start_date) in their respective regional XML DB. We 
+           can do this using the "let" clause, as follows:
+
+ ###############################################################################:)
+
+ let $Agrupated_TGN := $docTarragona/response/row/row[start_date = $Agrupated_LLD/start_date]
+ let $Agrupated_GIR := $docGirona/response/row/row[start_date = $Agrupated_LLD/start_date]
+ let $Agrupated_BCN := $docBarcelona/response/row/row[start_date = $Agrupated_LLD/start_date]
+
+(:############################################################################### 
+
+ STEP 5 -> Finally, we define the xQuery return clause, which generates an 
+           structured XML string including two main nodes or branches: 
+          (1) AgrupatedData and (2) IsolatedData. 
+
+		  1. AgrupatedData: Here, from within the <ConfirmedCases> xml 
+							subelement we retrieve (for each region) the nodes 
+							we already stored in the $Agrupated_XXX variables. 
+							However, since we only want the maximum value on a 
+							single date (the same one as in the Lleida region 
+							with max "confirmed_cases" values), we will have 
+							to apply another predicate filter on the parent 
+							node (so we can also retrieve the 
+							"confirmed_cases_rate" value).                                                              
+
+		  2. IsolatedData:  we need to show for every region the five days 
+							containing the highest confirmed_Cases without 
+							considering data from the other region (it's 
+							mandatory to get data containing Residence=”No”), 
+							so we can show the values "confirmed_cases" - 
+							"start_date". In a more detailed way- In every 
+							region (using for) we filter for every row node 
+							which has residence value as "No" through the 
+							clause "where" then as we have to provide the 5 
+							highest confirmed cases we first sort the output 
+							using the clause "order by" and finally we just 
+							take the first five using "count" reaching 5.
+							From here we return the information using the 
+							requested output format, showing the confirmed 
+							cases and it's start_date from the own region.
+
+ ###############################################################################:)
+
+ return 
+ <COVID>
+	<agrupatedData isInResidences="{$Agrupated_LLD/residence/text()}" MeasurementDate="{$Agrupated_LLD/start_date/text()}">
+		<LleidaData>
+			<ConfirmedCases>{$Agrupated_LLD/confirmed_cases/text()}</ConfirmedCases>
+			<ConfirmedCasesRate>{$Agrupated_LLD/confirmed_cases_rate/text()}</ConfirmedCasesRate>
+		</LleidaData>
+		<TarragonaData>
+			<ConfirmedCases>{$Agrupated_TGN[confirmed_cases = max($Agrupated_TGN/confirmed_cases)]/confirmed_cases/text()}</ConfirmedCases>
+			<ConfirmedCasesRate>{$Agrupated_TGN[confirmed_cases = max($Agrupated_TGN/confirmed_cases)]/confirmed_cases_rate/text()}</ConfirmedCasesRate>
+		</TarragonaData>
+		<GironaData>
+			<ConfirmedCases>{$Agrupated_GIR[confirmed_cases = max($Agrupated_GIR/confirmed_cases)]/confirmed_cases/text()}</ConfirmedCases>
+			<ConfirmedCasesRate>{$Agrupated_GIR[confirmed_cases = max($Agrupated_GIR/confirmed_cases)]/confirmed_cases_rate/text()}</ConfirmedCasesRate>
+		</GironaData>
+		<BarcelonaData>
+			<ConfirmedCases>{$Agrupated_BCN[confirmed_cases = max($Agrupated_BCN/confirmed_cases)]/confirmed_cases/text()}</ConfirmedCases>
+			<ConfirmedCasesRate>{$Agrupated_BCN[confirmed_cases = max($Agrupated_BCN/confirmed_cases)]/confirmed_cases_rate/text()}</ConfirmedCasesRate>
+		</BarcelonaData>
+	</agrupatedData>
+	<isolatedData>
+		<LleidaData> 
+			{for $Isolated_LLD in $docLleida//row
+			where $Isolated_LLD/residence = 'No'
+			order by xs:integer($Isolated_LLD/confirmed_cases) descending
+			count $item
+			where $item le 5
+			return
+			<ConfirmedCases>{$Isolated_LLD/confirmed_cases/text(), '-', $Isolated_LLD/start_date/text()}</ConfirmedCases>}
+		</LleidaData>
+		<TarragonaData>
+			{for $Isolated_TGN in $docTarragona//row
+			where $Isolated_TGN/residence = 'No'
+			order by xs:integer($Isolated_TGN/confirmed_cases) descending
+			count $item
+			where $item le 5
+			return
+			<ConfirmedCases>{$Isolated_TGN/confirmed_cases/text(), '-', $Isolated_TGN/start_date/text()}</ConfirmedCases>}
+		</TarragonaData>
+		<GironaData>
+			{for $Isolated_GIR in $docGirona//row
+			where $Isolated_GIR/residence = 'No'
+			order by xs:integer($Isolated_GIR/confirmed_cases) descending
+			count $item
+			where $item le 5
+			return
+			<ConfirmedCases>{$Isolated_GIR/confirmed_cases/text(), '-', $Isolated_GIR/start_date/text()}</ConfirmedCases>}
+		</GironaData>
+		<BarcelonaData>
+			{for $Isolated_BCN in $docBarcelona//row
+			where $Isolated_BCN/residence = 'No'
+			order by xs:integer($Isolated_BCN/confirmed_cases) descending
+			count $item
+			where $item le 5
+			return
+			<ConfirmedCases>{$Isolated_BCN/confirmed_cases/text(), '-', $Isolated_BCN/start_date/text()}</ConfirmedCases>}
+		</BarcelonaData>
+	</isolatedData>
+ </COVID>
+
+(:
+
+ ################################################################################
+ #                                                                              #
+ #                           REFERENCES / BIBLIOGRAPHY                          #
+ #                                                                              #
+ ################################################################################
+
+              https://stackoverflow.com/questions/30206069/xquery-find-max-value-and-return-relevant-information
+              https://www.tutorialspoint.com/xquery/xquery_max.htm
+              https://www.w3schools.com/xml/xquery_functions.asp
+              http://edutechwiki.unige.ch/en/XQuery_tutorial_-_basics#:~:text=declare%20variable%20%24x%20%3A%3D%207.5,the%20datatype%20of%20the%20result.
+              https://docs.oracle.com/cd/E13162_01/odsi/docs10gr3/datasrvc/Add%20a%20Where%20Clause%20to%20a%20Query.html#:~:text=eq%20%24CUSTOMER_ORDER%2FC_ID-,Use%20an%20XQuery%20Function%20in%20a%20Where%20Clause,Click%20Query%20Map.
+              Bibliography[#1], pages XX-YY
+:)

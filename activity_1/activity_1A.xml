@@ -1,0 +1,81 @@
+<!-- 
+
+ ################################################################################
+ #                                                                              #
+ #                             ACTIVITY 1A - VERSION 1.1                        #
+ #                                                                              #
+ #               (EMBED THIS FILE'S CONTENT IN THE PDF FINAL MEMORY)            #
+ #                                                                              #
+ ################################################################################
+
+-->
+
+<?xml version = "1.0" encoding = "ISO-8859-1" ?> <!-- See comments section [1] -->
+
+<metadata <!-- See comments section [2] -->
+    xmlns="http://www.uoc.edu/subjects/adb/ns" <!-- See comments section [3] -->
+	xmlns:gencat="http://www.gencat.cat/dadesobertes/ns"> <!-- See comments section [4] -->
+	<COVID idregion="43">
+		<patients_hospitalized type="patients">
+			<men>17</men>
+			<women>4</women>
+			<average_age>56</average_age>
+		</patients_hospitalized>
+		<patients_ICU type="patients">
+			<men>6</men>
+			<women>2</women>
+			<average_age>64</average_age>
+		</patients_ICU>
+		<accumulated_cases>3947</accumulated_cases>
+	</COVID>
+	<COVID idregion="17">
+		<patients_hospitalized type="patients">
+			<men>21</men>
+			<women>6</women>
+			<average_age>58</average_age>
+		</patients_hospitalized>
+		<patients_ICU type="patients">
+			<men>7</men>
+			<women>1</women>
+			<average_age>67</average_age>
+		</patients_ICU>
+		<accumulated_cases>7998</accumulated_cases>
+	</COVID>
+	<gencat:COVID day="12/8/2020"> 	<!-- See comments section [5] -->
+		<![!CDATA[...]]> 	<!-- See comments section [6] -->
+	</gencat:COVID>
+</metadata>
+
+<!-- 
+
+ ################################################################################
+ #                                                                              #
+ #                                 COMMENTS SECTION                             #
+ #                                                                              #
+ ################################################################################
+
+ [1] -> The prolog section of the xml document is the place where we can specify
+        the encoding type (which in our case must be "ISO-8859-1"). 
+
+ [2] -> I don't really know if we should use the keyword "root" instead of 
+        "metadata" to define the xml's tree root (most likely it doesn't matter, 
+        but better ask it in the forum to be in the safe side).
+
+ [3] -> to set the default namespace we use the "xmlns" attribute. 
+
+ [4] -> we define a specific namespace alias (gencat) to avoid name clashes between 
+        the two elements with identical identification (COVID) but (probably) 
+        different application data structure.
+
+ [5] -> Here we specify the alias "gencat" to this xml element (COVID) in order
+        to refer to the custom namespace provided in the activity statement. This
+        is required for the sake of properly integrate the external COVID xml data
+        into our xml, due to the fact that this external data MIGHT NOT HAVE the
+        very same structure than the defined in the default namespace, from which
+        we set the default predefined xml dictionary for this xml document. 
+
+ [6] -> the structure of the external "not-xml" data is not provided, so we 
+        cannot define it (we use the [...] placeholder instead). 
+        (maybe we have to add a refernce to the "summary of the latest data")
+
+-->
