@@ -1,4 +1,10 @@
- /*##############################################################################
+<?xml 
+	version = "1.0" 
+	encoding = "ISO-8859-1" ?>
+
+ <!-- COMMENTS CANNOT APPEAR BEFORE XML DECLARATION
+
+ ################################################################################
  #                                                                              #
  #                       UOC - Open University of Catalonia                     #
  #                                                                              #
@@ -6,13 +12,13 @@
 
  ################################################################################
  #                                                                              #
- #                            DATABASE ARCHITECTURES                            # 
+ #                            DATABASE ARCHITECTURES                            #
  #                                 (ABD - 05607)                                #
- #                                                                              # 
+ #                                                                              #
  #                             PRACTICAL ASSIGNMENT #2                          #
  #                                                                              #
  #                       STUDENTS: Del Blanco García, Carles                    #
- #								   Bericat Ruz, Jordi                           #
+ #								   Bericat Ruz, Jordi                                         #
  #                                                                              #
  #                           TERM: Autumn 2020/21                               #
  #                    GITHUB REPO: UOC-Assignments/uoc.abd.prac2                #
