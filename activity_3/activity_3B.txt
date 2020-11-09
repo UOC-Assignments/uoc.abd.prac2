@@ -25,21 +25,14 @@
 
  ################################################################################
  #                                                                              #
- #  DESCRIPTION: ACTIVITY 3-B (SEE COMMENTS AT THE ASSIGMENT'S PDF MEMORY,      #
- #              SECTION 3-B                                                     #
+ #                    DESCRIPTION: ACTIVITY 3-B                                 #
  #                                                                              #
  ################################################################################ :)
 
 
 (:############################################################################### 
 
-    STEP 1 -> Now we just retrieve the maximum value among all the 
-              "confirmed_cases" elements in the "dadesLleida.xml", so later we 
-              could retrieve the related start_date data and then filter the 
-              results retrieved from the other xml databases using this value as 
-              a key (that is, we retrieve the start_date element). We achieve 
-              this by means of assigning the value returned by the max() function 
-              into a variable using the "let" clause. 
+    STEP 1 -> First we define a variable set to refer the xml database: 
 
  ################################################################################:)
 
@@ -51,26 +44,38 @@ declare variable $docBarcelona := doc("dadesBarcelona.xml");
 (:############################################################################### 
 
     STEP 2 -> Now we just retrieve the maximum value among all the 
-              "confirmed_cases" elements in the "dadesLleida.xml", so later we 
-              could retrieve the related start_date data and then filter the 
-              results retrieved from the other xml databases using this value as 
-              a key (that is, we retrieve the start_date element). We achieve 
+              "confirmed_cases" elements in the "dadesLleida.xml" DB, so later we 
+              could retrieve the related "start_date" element value and then filter  
+              the results retrieved from the other xml databases using this value
+              as a key (that is, we retrieve the start_date element). We achieve 
               this by means of assigning the value returned by the max() function 
-              into a variable using the "let" clause. 
+              into a variable using the "let" clause: 
 
  ################################################################################:)
 
 let $max_LLD := max($docLleida/response/row/row/confirmed_cases)
 
-(: #### 3.  #### :)
+(:############################################################################### 
+
+    STEP 3 ->  
+
+ ################################################################################:)
 
 for $Agrupated_LLD in $docLleida /response/row/row 
 
-(: #### 4.  #### :)
+(:############################################################################### 
+
+    STEP 4 ->  
+
+ ################################################################################:)
 
 where $Agrupated_LLD/confirmed_cases = $max_LLD
 
-(: #### 5.  #### :)
+(:############################################################################### 
+
+    STEP 5 ->  
+
+ ################################################################################:)
 
 let $Agrupated_TGN := $docTarragona/response/row/row[start_date = $Agrupated_LLD/start_date]
 let $Agrupated_GIR := $docGirona/response/row/row[start_date = $Agrupated_LLD/start_date]
