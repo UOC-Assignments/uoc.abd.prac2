@@ -30,19 +30,35 @@
  #                                                                              #
  ################################################################################ :)
 
-(: #### 1. First we define a variable set to refer the xml database #### :)
+
+(:############################################################################### 
+
+    STEP 1 -> Now we just retrieve the maximum value among all the 
+              "confirmed_cases" elements in the "dadesLleida.xml", so later we 
+              could retrieve the related start_date data and then filter the 
+              results retrieved from the other xml databases using this value as 
+              a key (that is, we retrieve the start_date element). We achieve 
+              this by means of assigning the value returned by the max() function 
+              into a variable using the "let" clause. 
+
+ ################################################################################:)
 
 declare variable $docLleida := doc("dadesLleida.xml");
 declare variable $docTarragona := doc("dadesTarragona.xml");
 declare variable $docGirona := doc("dadesGirona.xml");
 declare variable $docBarcelona := doc("dadesBarcelona.xml");
 
-(: #### 2. The next step is to retrieve the maximum value among all the 
-           "confirmed_cases" elements in the "dadesLleida.xml". To achieve this,
-           
+(:############################################################################### 
 
+    STEP 2 -> Now we just retrieve the maximum value among all the 
+              "confirmed_cases" elements in the "dadesLleida.xml", so later we 
+              could retrieve the related start_date data and then filter the 
+              results retrieved from the other xml databases using this value as 
+              a key (that is, we retrieve the start_date element). We achieve 
+              this by means of assigning the value returned by the max() function 
+              into a variable using the "let" clause. 
 
-#### :)
+ ################################################################################:)
 
 let $max_LLD := max($docLleida/response/row/row/confirmed_cases)
 
