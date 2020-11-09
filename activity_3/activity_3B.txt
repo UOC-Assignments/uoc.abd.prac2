@@ -57,7 +57,9 @@ let $max_LLD := max($docLleida/response/row/row/confirmed_cases)
 
 (:############################################################################### 
 
-    STEP 3 ->  
+    STEP 3 ->  Next, we select the parent element (using the "for" clause) that 
+               has the "confirmed_cases" maximum value (condition defined in the 
+               "where" clause) from the "dadesLleida.xml" DB.
 
  ################################################################################:)
 
@@ -66,7 +68,11 @@ where $Agrupated_LLD/confirmed_cases = $max_LLD
 
 (:############################################################################### 
 
-    STEP 4 ->  
+    STEP 4 -> Now, using the data from the node selected (one) in the previous step 
+              using the "for" clause, we can set an xPath predicate filter to 
+              retrieve ALL the nodes (xml data can be segmented) that contain 
+              the same value (start_date) in their respective regional XML DB. We 
+              can do this using the "let" clause, as follows:
 
  ################################################################################:)
 
@@ -76,7 +82,13 @@ let $Agrupated_BCN := $docBarcelona/response/row/row[start_date = $Agrupated_LLD
 
 (:############################################################################### 
 
-    STEP 5 -> Finally, we define the xQuery return clause (EXTEND........)
+    STEP 5 -> Finally, we define the xQuery return clause, which generates an 
+              structured XML string including two main nodes or branches: 
+              (1) AgrupatedData and (2) IsolatedData. 
+
+              1. AgrupatedData:
+
+              2. IsolatedData:
 
  ################################################################################:)
 
