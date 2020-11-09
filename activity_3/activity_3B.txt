@@ -97,7 +97,8 @@ let $Agrupated_BCN := $docBarcelona/response/row/row[start_date = $Agrupated_LLD
                                 "confirmed_cases_rate" value)                                
                                 
 
-              2. IsolatedData:
+              2. IsolatedData:   we need to show for every region the five days containing the highest confirmed_Cases without considering data from the other regions. 
+    It's mandatory to get data containing Residence=”No”. Finally we 'll show the values confirmed_cases - start_date.  
 
  ################################################################################:)
 
