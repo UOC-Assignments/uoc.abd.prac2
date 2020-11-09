@@ -94,16 +94,23 @@ let $Agrupated_BCN := $docBarcelona/response/row/row[start_date = $Agrupated_LLD
                                 with max "confirmed_cases" values), we will have 
                                 to apply another predicate filter on the parent 
                                 node (so we can also retrieve the 
-                                "confirmed_cases_rate" value)                                
-                                
+                                "confirmed_cases_rate" value).                                                              
 
-              2. IsolatedData:   we need to show for every region the five days containing the highest confirmed_Cases without considering data from the other regions. 
-    It's mandatory to get data containing Residence=”No”. Finally we 'll show the values confirmed_cases - start_date.  
-
-
-    In every region (using for) we filter for every row node which has residence value as "No" through the clause "where" then as we have to provide the 5 highest confirmed cases 
-    we first sort the output using the clause "order by" and finally we just take the first five using "count" reaching 5.
-    From here we return the information using the requested output format, showing the confirmed cases and it's start_date from the own region
+              2. IsolatedData:  we need to show for every region the five days 
+                                containing the highest confirmed_Cases without 
+                                considering data from the other region (it's 
+                                mandatory to get data containing Residence=”No”), 
+                                so we can show the values "confirmed_cases" - 
+                                "start_date". In a more detailed way- In every 
+                                region (using for) we filter for every row node 
+                                which has residence value as "No" through the 
+                                clause "where" then as we have to provide the 5 
+                                highest confirmed cases we first sort the output 
+                                using the clause "order by" and finally we just 
+                                take the first five using "count" reaching 5.
+                                From here we return the information using the 
+                                requested output format, showing the confirmed 
+                                cases and it's start_date from the own region.
 
  ################################################################################:)
 
